@@ -22,6 +22,7 @@ namespace Tetris
 		bool paused;
 		OptionsForm optionsForm;
 		
+		int boardSize = 1;
 		int nx = 10, ny = 20;
 		int cellSize = 20;
 		
@@ -53,7 +54,7 @@ namespace Tetris
 			this.ClientSize = new Size(clientWidth, clientHeight);
 
 			infoLabel.Text = "";
-			SetColorTheme(ColorTheme.DarkTheme());
+			SetColorTheme(ColorTheme.Dark());
 		}
 		
 		void StartNewGame()
@@ -120,7 +121,7 @@ namespace Tetris
 			if (result == DialogResult.Cancel)
 				return;
 			
-			switch (optionsForm.boardSize)
+			switch (optionsForm.BoardSize)
 			{
 				case 1:
 					nx = 10; ny = 20; cellSize = 20;
@@ -133,10 +134,25 @@ namespace Tetris
 					break;
 			}
 			
-			game.Pause();
-			InitGame();
+			if (optionsForm.BoardSize != this.boardSize)
+			{
+				game.Pause();
+				InitGame();
+			}
+			
+			this.boardSize = optionsForm.BoardSize;
+			
+			if (optionsForm.ColorTheme == 1)
+				SetColorTheme(ColorTheme.Light());
+			else
+				SetColorTheme(ColorTheme.Dark());
+			
+			game.ShowGrid = optionsForm.ShowGrid;
+			game.ShowShadow = optionsForm.ShowShadow;			
+			
 			game.Render();
-			//StartNewGame();
+			game.ShowNextFigure();
+			
 		}
 		void ExitToolStripMenuItemClick(object sender, EventArgs e)
 		{

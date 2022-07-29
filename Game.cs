@@ -74,7 +74,7 @@ namespace Tetris
 			nextFigure = GetRandomFigure();
 			PutNewFigure();
 			
-			timer.Interval = 800;
+			timer.Interval = 1000;
 			timer.Start();
 			
 			Render();
@@ -113,10 +113,11 @@ namespace Tetris
 			}
 		}
 
-		void ShowNextFigure()
+		public void ShowNextFigure()
 		{
 			nextPainter.Clear();
-			nextPainter.DrawFigure(nextFigure);
+			if (nextFigure != null)
+				nextPainter.DrawFigure(nextFigure);
 			nextPainter.Update();
 		}
 		

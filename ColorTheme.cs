@@ -24,10 +24,10 @@ namespace Tetris
 
 		public static ColorTheme DefaultTheme()
 		{
-			return LightTheme();
+			return Light();
 		}
 				
-		public static ColorTheme LightTheme()
+		public static ColorTheme Light()
 		{
 			var theme = new ColorTheme();
 			
@@ -45,12 +45,12 @@ namespace Tetris
 			theme.brushes[7] = Brushes.Gold;
 			theme.brushes[8] = Brushes.DarkGray; // shadow
 			
-			theme.gridPen = Pens.DarkGray;
+			theme.gridPen = new Pen(Color.FromArgb(185, 185, 185));
 			
 			return theme;
 		}
 		
-		public static ColorTheme DarkTheme()
+		public static ColorTheme Dark()
 		{
 			var theme = new ColorTheme();
 			
@@ -68,7 +68,7 @@ namespace Tetris
 			theme.brushes[7] = Brushes.Gold;
 			theme.brushes[8] = Brushes.DarkGray; // shadow
 			
-			theme.gridPen = Pens.DarkGray;
+			theme.gridPen = new Pen(Color.FromArgb(85, 85, 85));
 			
 			return theme;
 		}		

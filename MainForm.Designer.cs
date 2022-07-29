@@ -28,6 +28,9 @@ namespace Tetris
 		private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
 		private System.Windows.Forms.PictureBox nextFigurePicture;
+		private System.Windows.Forms.Label infoLabel;
+		private System.Windows.Forms.ToolStripMenuItem pauseResumeToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem boardSizeToolStripMenuItem;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -51,6 +54,7 @@ namespace Tetris
 		private void InitializeComponent()
 		{
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.infoLabel = new System.Windows.Forms.Label();
 			this.nextFigurePicture = new System.Windows.Forms.PictureBox();
 			this.levelLabel = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
@@ -63,6 +67,8 @@ namespace Tetris
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.pauseResumeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.boardSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nextFigurePicture)).BeginInit();
@@ -72,6 +78,7 @@ namespace Tetris
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.infoLabel);
 			this.panel1.Controls.Add(this.nextFigurePicture);
 			this.panel1.Controls.Add(this.levelLabel);
 			this.panel1.Controls.Add(this.label6);
@@ -85,9 +92,18 @@ namespace Tetris
 			this.panel1.Size = new System.Drawing.Size(204, 432);
 			this.panel1.TabIndex = 0;
 			// 
+			// infoLabel
+			// 
+			this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.infoLabel.Location = new System.Drawing.Point(41, 159);
+			this.infoLabel.Name = "infoLabel";
+			this.infoLabel.Size = new System.Drawing.Size(131, 23);
+			this.infoLabel.TabIndex = 8;
+			this.infoLabel.Text = "Info label";
+			// 
 			// nextFigurePicture
 			// 
-			this.nextFigurePicture.Location = new System.Drawing.Point(56, 191);
+			this.nextFigurePicture.Location = new System.Drawing.Point(56, 221);
 			this.nextFigurePicture.Name = "nextFigurePicture";
 			this.nextFigurePicture.Size = new System.Drawing.Size(100, 100);
 			this.nextFigurePicture.TabIndex = 7;
@@ -123,7 +139,7 @@ namespace Tetris
 			// label4
 			// 
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label4.Location = new System.Drawing.Point(0, 209);
+			this.label4.Location = new System.Drawing.Point(3, 239);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(56, 23);
 			this.label4.TabIndex = 3;
@@ -178,6 +194,8 @@ namespace Tetris
 			// 
 			this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 			this.newGameToolStripMenuItem,
+			this.pauseResumeToolStripMenuItem,
+			this.boardSizeToolStripMenuItem,
 			this.exitToolStripMenuItem});
 			this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
 			this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
@@ -186,14 +204,28 @@ namespace Tetris
 			// newGameToolStripMenuItem
 			// 
 			this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-			this.newGameToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+			this.newGameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.newGameToolStripMenuItem.Text = "New Game";
+			// 
+			// pauseResumeToolStripMenuItem
+			// 
+			this.pauseResumeToolStripMenuItem.Name = "pauseResumeToolStripMenuItem";
+			this.pauseResumeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.pauseResumeToolStripMenuItem.Text = "Pause";
+			// 
+			// boardSizeToolStripMenuItem
+			// 
+			this.boardSizeToolStripMenuItem.Name = "boardSizeToolStripMenuItem";
+			this.boardSizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.boardSizeToolStripMenuItem.Text = "Options...";
+			this.boardSizeToolStripMenuItem.Click += new System.EventHandler(this.BoardSizeToolStripMenuItemClick);
 			// 
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.exitToolStripMenuItem.Text = "Exit";
+			this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
 			// 
 			// MainForm
 			// 

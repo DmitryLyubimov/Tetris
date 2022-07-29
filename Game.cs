@@ -25,10 +25,13 @@ namespace Tetris
 		Figure shadow;
 		Random rng;
 		Timer timer;
-		bool gameOver;
 		int droppedRows;
 		
-		public event Action ScoreChanged;
+		enum State { Intro, Running, Paused, GameOver };
+		State state;
+		
+		public event Action ScoreChangedEvent;
+		public event Action GameOverEvent;
 		
 		public bool ShowShadow { get; set; }
 		public bool ShowGrid { get; set; }
@@ -56,15 +59,15 @@ namespace Tetris
 			
 			ShowShadow = true;
 			ShowGrid = true;
+			state = State.Intro;
 		}
 
 		public void StartNewGame()
 		{
-			gameOver = false;
-			
 			droppedRows = 0;
 			Level = 1;
 			Score = 0;
+			state = State.Running;
 			
 			board.Clear();
 			
@@ -74,7 +77,7 @@ namespace Tetris
 			timer.Interval = 800;
 			timer.Start();
 			
-			RedrawGameFrame();
+			Render();
 		}
 		
 		static public void AdjustNewPicture(PictureBox picture, ref Painter painter, int nx, int ny, int cellSize)
@@ -84,30 +87,30 @@ namespace Tetris
 			painter.SetPicture(picture);
 		}		
 	
-		public void RedrawGameFrame()
+		public void Render()
 		{
-			if (gameOver)
+			if (state == State.Intro)
 			{
-				var font = new Font(FontFamily.GenericSansSerif, 24);
-				var brush = new SolidBrush(painter.Theme.textColor);
-				painter.Graphics.DrawString("Game over", font, brush, 30, 100);
+				board.FillRandom(board.ny, rng);
+				painter.DrawBoard(board);
 				painter.Update();
-				return;
 			}
-			
-			painter.Clear();
-			painter.DrawFrameAroundPicture();
-			
-			if (ShowGrid)
-				painter.DrawGrid();
-			
-			painter.DrawBoard(board);
-			painter.DrawFigure(figure);
-			
-			if (shadow != null)
-				painter.DrawFigure(shadow);
-			
-			painter.Update();
+			else
+			{
+				painter.Clear();
+				painter.DrawFrameAroundPicture();
+				
+				if (ShowGrid)
+					painter.DrawGrid();
+				
+				painter.DrawBoard(board);
+				painter.DrawFigure(figure);
+				
+				if (shadow != null)
+					painter.DrawFigure(shadow);
+				
+				painter.Update();
+			}
 		}
 
 		void ShowNextFigure()
@@ -123,15 +126,22 @@ namespace Tetris
 			var fig = Figure.CreateFigure(id);
 			return fig;
 		}
-	
+
+		void GameOver()
+		{
+			if (GameOverEvent != null)
+				GameOverEvent();
+			timer.Stop();
+			state = State.GameOver;
+		}
+		
 		void PutNewFigure()
 		{
 			figure = nextFigure;
 			figure.MoveTo(board.nx / 2, 0);
 			
 			if (board.ValidFigure(figure) == false) {
-				gameOver = true;
-				timer.Stop();
+				GameOver();
 				return;
 			}
 			
@@ -167,8 +177,8 @@ namespace Tetris
 					timer.Interval = 60;
 			}
 			
-			if (ScoreChanged != null)
-				ScoreChanged();
+			if (ScoreChangedEvent != null)
+				ScoreChangedEvent();
 		}
 		
 		void UpdateShadow()
@@ -212,25 +222,34 @@ namespace Tetris
 		
 		public void MoveRight()
 		{
+			if (state != State.Running)
+				return;
+			
 			bool success = MoveFigure(figure, 1, 0);
 			if (success) {
 				UpdateShadow();
-				RedrawGameFrame();
+				Render();
 			}
 		}
 
 		public void MoveLeft()
 		{
+			if (state != State.Running)
+				return;
+
 			bool success = MoveFigure(figure, -1, 0);
 			if (success) {
 				UpdateShadow();
-				RedrawGameFrame();
+				Render();
 			}
 				
 		}
 		
 		public void MoveDown()
 		{
+			if (state != State.Running)
+				return;
+
 			bool success = MoveFigure(figure, 0, 1);
 			if (success) {
 				UpdateShadow();
@@ -242,22 +261,46 @@ namespace Tetris
 				PutNewFigure();
 			}
 			
-			RedrawGameFrame();
+			Render();
 		}
 
 		public void Rotate()
 		{
+			if (state != State.Running)
+				return;
+
 			bool success = RotateFigure();
 			if (success) {
 				UpdateShadow();
-				RedrawGameFrame();
+				Render();
 			}
 		}
 
 		public void DropDown()
 		{
+			if (state != State.Running)
+				return;
+
 			while (MoveFigure(figure, 0, 1)) { }
 			MoveDown();			              
+		}
+		
+		public void Pause()
+		{
+			if (state == State.Running)
+			{
+				timer.Stop();
+				state = State.Paused;
+			}
+		}
+		
+		public void Resume()
+		{
+			if (state == State.Paused)
+			{
+				timer.Start();
+				state = State.Running;
+			}
 		}
 	}
 }

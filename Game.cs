@@ -25,6 +25,9 @@ namespace Tetris
 		Figure shadow;
 		Random rng;
 		Timer timer;
+		Timer gameDurationTimer;
+		int gamePlayTime;
+
 		int droppedRows;
 		
 		enum State { Intro, Running, Paused, GameOver };
@@ -32,6 +35,7 @@ namespace Tetris
 		
 		public event Action ScoreChangedEvent;
 		public event Action GameOverEvent;
+		public event Action<int> GameDurationTimerEvent;
 		
 		public bool ShowShadow { get; set; }
 		public bool ShowGrid { get; set; }
@@ -57,8 +61,12 @@ namespace Tetris
 			AdjustNewPicture(nextPicture, ref nextPainter, 4, 4, cellSize);
 			
 			rng = new Random();
+			
 			timer = new Timer();
 			timer.Tick += new System.EventHandler(this.TimerTick);
+			gameDurationTimer = new Timer();
+			gameDurationTimer.Interval = 1000;
+			gameDurationTimer.Tick += new System.EventHandler(this.DurationTick);
 			
 			ShowShadow = true;
 			ShowGrid = true;
@@ -82,6 +90,8 @@ namespace Tetris
 			
 			timer.Interval = 1000;
 			timer.Start();
+			gameDurationTimer.Start();
+			gamePlayTime = 0;
 			
 			Render();
 		}
@@ -139,6 +149,7 @@ namespace Tetris
 			if (GameOverEvent != null)
 				GameOverEvent();
 			timer.Stop();
+			gameDurationTimer.Stop();
 			state = State.GameOver;
 		}
 		
@@ -161,6 +172,13 @@ namespace Tetris
 		void TimerTick(object sender, EventArgs e)
 		{
 			MoveDown();
+		}
+
+		void DurationTick(object sender, EventArgs e)
+		{
+			gamePlayTime++;
+			if (GameDurationTimerEvent != null)
+				GameDurationTimerEvent(gamePlayTime);
 		}
 		
 		void UpdateScore(int rows)
@@ -314,6 +332,7 @@ namespace Tetris
 			if (state == State.Running)
 			{
 				timer.Stop();
+				gameDurationTimer.Stop();
 				state = State.Paused;
 			}
 		}
@@ -323,6 +342,7 @@ namespace Tetris
 			if (state == State.Paused)
 			{
 				timer.Start();
+				gameDurationTimer.Start();
 				state = State.Running;
 			}
 		}

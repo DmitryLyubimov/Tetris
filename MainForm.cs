@@ -46,6 +46,7 @@ namespace Tetris
 			game = new Game(mainPicture, nextFigurePicture, nx, ny, cellSize);
 			game.ScoreChangedEvent += this.ScoreChanged;
 			game.GameOverEvent += this.GameOver;
+			game.GameDurationTimerEvent += this.GameDurationTimer;
 			game.ShowGrid = this.showGrid;
 			game.ShowShadow = this.showShadow;
 
@@ -62,6 +63,7 @@ namespace Tetris
 			infoLabel.Text = "";
 			paused = false;
 			game.StartNewGame();
+			ScoreChanged();
 		}
 		
 		void SetColorTheme(ColorTheme theme)
@@ -108,6 +110,13 @@ namespace Tetris
 			scoreLabel.Text = game.Score.ToString();
 			linesLabel.Text = game.Lines.ToString();
 			levelLabel.Text = game.Level.ToString();
+		}
+
+		void GameDurationTimer(int elapsedTime)
+		{
+			int seconds = elapsedTime % 60;
+			int minutes = (elapsedTime / 60);
+			elapsedTimeLabel.Text = String.Format("{0:d2}:{1:d2}", minutes, seconds);
 		}
 		
 		void GameOver()

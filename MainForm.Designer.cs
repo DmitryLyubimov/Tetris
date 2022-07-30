@@ -32,6 +32,8 @@ namespace Tetris
 		private System.Windows.Forms.ToolStripMenuItem pauseResumeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+		private System.Windows.Forms.Label elapsedTimeLabel;
+		private System.Windows.Forms.Label label5;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -55,6 +57,8 @@ namespace Tetris
 		private void InitializeComponent()
 		{
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.elapsedTimeLabel = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
 			this.infoLabel = new System.Windows.Forms.Label();
 			this.nextFigurePicture = new System.Windows.Forms.PictureBox();
 			this.levelLabel = new System.Windows.Forms.Label();
@@ -80,6 +84,8 @@ namespace Tetris
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.elapsedTimeLabel);
+			this.panel1.Controls.Add(this.label5);
 			this.panel1.Controls.Add(this.infoLabel);
 			this.panel1.Controls.Add(this.nextFigurePicture);
 			this.panel1.Controls.Add(this.levelLabel);
@@ -91,15 +97,33 @@ namespace Tetris
 			this.panel1.Controls.Add(this.label1);
 			this.panel1.Location = new System.Drawing.Point(12, 38);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(204, 432);
+			this.panel1.Size = new System.Drawing.Size(169, 432);
 			this.panel1.TabIndex = 0;
+			// 
+			// elapsedTimeLabel
+			// 
+			this.elapsedTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.elapsedTimeLabel.Location = new System.Drawing.Point(74, 357);
+			this.elapsedTimeLabel.Name = "elapsedTimeLabel";
+			this.elapsedTimeLabel.Size = new System.Drawing.Size(82, 23);
+			this.elapsedTimeLabel.TabIndex = 10;
+			this.elapsedTimeLabel.Text = "0";
+			// 
+			// label5
+			// 
+			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label5.Location = new System.Drawing.Point(3, 357);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(56, 23);
+			this.label5.TabIndex = 9;
+			this.label5.Text = "Time";
 			// 
 			// infoLabel
 			// 
 			this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.infoLabel.Location = new System.Drawing.Point(41, 159);
+			this.infoLabel.Location = new System.Drawing.Point(37, 159);
 			this.infoLabel.Name = "infoLabel";
-			this.infoLabel.Size = new System.Drawing.Size(131, 23);
+			this.infoLabel.Size = new System.Drawing.Size(115, 23);
 			this.infoLabel.TabIndex = 8;
 			this.infoLabel.Text = "Info label";
 			// 
@@ -107,7 +131,7 @@ namespace Tetris
 			// 
 			this.nextFigurePicture.Location = new System.Drawing.Point(74, 221);
 			this.nextFigurePicture.Name = "nextFigurePicture";
-			this.nextFigurePicture.Size = new System.Drawing.Size(100, 100);
+			this.nextFigurePicture.Size = new System.Drawing.Size(82, 87);
 			this.nextFigurePicture.TabIndex = 7;
 			this.nextFigurePicture.TabStop = false;
 			// 
@@ -141,7 +165,7 @@ namespace Tetris
 			// label4
 			// 
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label4.Location = new System.Drawing.Point(3, 239);
+			this.label4.Location = new System.Drawing.Point(3, 245);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(56, 23);
 			this.label4.TabIndex = 3;
@@ -176,9 +200,9 @@ namespace Tetris
 			// 
 			// mainPicture
 			// 
-			this.mainPicture.Location = new System.Drawing.Point(222, 38);
+			this.mainPicture.Location = new System.Drawing.Point(190, 38);
 			this.mainPicture.Name = "mainPicture";
-			this.mainPicture.Size = new System.Drawing.Size(247, 432);
+			this.mainPicture.Size = new System.Drawing.Size(279, 432);
 			this.mainPicture.TabIndex = 1;
 			this.mainPicture.TabStop = false;
 			// 

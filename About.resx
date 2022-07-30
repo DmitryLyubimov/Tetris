@@ -129,7 +129,7 @@ RIght arrow	move right
 Up arrow 	rotate
 Down arrow	move down
 Space		drop down
-Q		swap between current and next block
+C or Q		swap between current and next block
 P		pause/resume game
 F2		start new game</value>
   </data>

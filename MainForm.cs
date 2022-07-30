@@ -80,7 +80,8 @@ namespace Tetris
 				case Keys.Down:  game.MoveDown(); break;
 				case Keys.Up:	 game.Rotate(); break;
 				case Keys.Space: game.DropDown(); break;
-				case Keys.Q:	 game.SwapCurrentAndNext(); break;
+				case Keys.Q:
+				case Keys.C:	 game.SwapCurrentAndNext(); break;
 				case Keys.F2:	 this.StartNewGame(); break;
 				case Keys.P:	 this.Pause(); break;
 			}

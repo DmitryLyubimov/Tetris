@@ -31,21 +31,21 @@ namespace Tetris
 		{
 			var theme = new ColorTheme();
 			
-			theme.backgroundColor = SystemColors.Control;
+			theme.backgroundColor = Color.FromArgb(250, 250, 230);
 			theme.textColor = Color.Black;
 			
 			theme.brushes = new Brush[9];
 			theme.brushes[0] = new SolidBrush(theme.backgroundColor);
-			theme.brushes[1] = Brushes.DeepPink;
-			theme.brushes[2] = Brushes.OrangeRed;
+			theme.brushes[1] = Brushes.OrangeRed;
+			theme.brushes[2] = Brushes.LightSkyBlue;
 			theme.brushes[3] = Brushes.Brown;
-			theme.brushes[4] = Brushes.LawnGreen;
-			theme.brushes[5] = Brushes.Green;
-			theme.brushes[6] = Brushes.DodgerBlue;
-			theme.brushes[7] = Brushes.Gold;
+			theme.brushes[4] = Brushes.LimeGreen;
+			theme.brushes[5] = Brushes.MediumPurple;
+			theme.brushes[6] = Brushes.RoyalBlue;
+			theme.brushes[7] = Brushes.Orange;
 			theme.brushes[8] = Brushes.DarkGray; // shadow
 			
-			theme.gridPen = new Pen(Color.FromArgb(185, 185, 185));
+			theme.gridPen = new Pen(Color.FromArgb(175, 175, 175));
 			
 			return theme;
 		}

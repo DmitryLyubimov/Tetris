@@ -35,8 +35,11 @@ namespace Tetris
 		
 		public bool ShowShadow { get; set; }
 		public bool ShowGrid { get; set; }
+		public int BoardFilledRows { get; set; }
+		public int BoardFreeSpace { get; set; }
 		
 		public int Score { get; set; }
+		public int Lines { get; set; }
 		public int Level { get; set; }
 		
 		public ColorTheme Theme {
@@ -59,6 +62,8 @@ namespace Tetris
 			
 			ShowShadow = true;
 			ShowGrid = true;
+			BoardFilledRows = 0;
+			BoardFreeSpace = 4;
 			state = State.Intro;
 		}
 
@@ -70,6 +75,7 @@ namespace Tetris
 			state = State.Running;
 			
 			board.Clear();
+			board.FillRandom(BoardFilledRows, BoardFreeSpace, rng);
 			
 			nextFigure = GetRandomFigure();
 			PutNewFigure();
@@ -91,7 +97,7 @@ namespace Tetris
 		{
 			if (state == State.Intro)
 			{
-				board.FillRandom(board.ny, rng);
+				board.FillRandom(board.ny, 1, rng);
 				painter.DrawBoard(board);
 				painter.Update();
 			}
@@ -168,6 +174,7 @@ namespace Tetris
 				case 4: Score += 80*Level; break;
 			}	
 			
+			Lines += rows;
 			droppedRows += rows;
 			if (droppedRows >= 10)
 			{
@@ -284,6 +291,22 @@ namespace Tetris
 
 			while (MoveFigure(figure, 0, 1)) { }
 			MoveDown();			              
+		}
+
+		public void SwapCurrentAndNext()
+		{
+			if (state != State.Running)
+				return;
+			
+			var t = figure;
+			figure = nextFigure;
+			nextFigure = t;
+			
+			figure.MoveTo(board.nx / 2, 0);
+			nextFigure.MoveTo(0, 0);
+			
+			Render();
+			ShowNextFigure();
 		}
 		
 		public void Pause()

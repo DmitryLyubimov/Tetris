@@ -54,7 +54,7 @@ namespace Tetris
 			this.ClientSize = new Size(clientWidth, clientHeight);
 
 			infoLabel.Text = "";
-			SetColorTheme(ColorTheme.Dark());
+			SetColorTheme(ColorTheme.Light());
 		}
 		
 		void StartNewGame()
@@ -80,6 +80,7 @@ namespace Tetris
 				case Keys.Down:  game.MoveDown(); break;
 				case Keys.Up:	 game.Rotate(); break;
 				case Keys.Space: game.DropDown(); break;
+				case Keys.Q:	 game.SwapCurrentAndNext(); break;
 				case Keys.F2:	 this.StartNewGame(); break;
 				case Keys.P:	 this.Pause(); break;
 			}
@@ -104,6 +105,7 @@ namespace Tetris
 		void ScoreChanged()
 		{
 			scoreLabel.Text = game.Score.ToString();
+			linesLabel.Text = game.Lines.ToString();
 			levelLabel.Text = game.Level.ToString();
 		}
 		
@@ -112,7 +114,7 @@ namespace Tetris
 			infoLabel.Text = "GAME OVER";
 		}
 		
-		void BoardSizeToolStripMenuItemClick(object sender, EventArgs e)
+		void OptionsToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			if (optionsForm == null)
 				optionsForm = new OptionsForm();
@@ -148,7 +150,9 @@ namespace Tetris
 				SetColorTheme(ColorTheme.Dark());
 			
 			game.ShowGrid = optionsForm.ShowGrid;
-			game.ShowShadow = optionsForm.ShowShadow;			
+			game.ShowShadow = optionsForm.ShowShadow;
+			game.BoardFilledRows = optionsForm.FilledRows;
+			game.BoardFreeSpace = optionsForm.FreeSpace;
 			
 			game.Render();
 			game.ShowNextFigure();
@@ -157,6 +161,14 @@ namespace Tetris
 		void ExitToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			this.Close();
+		}
+		void NewGameToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			this.StartNewGame();
+		}
+		void PauseResumeToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			this.Pause();
 		}
 	}
 }

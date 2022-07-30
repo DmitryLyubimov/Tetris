@@ -21,7 +21,7 @@ namespace Tetris
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.PictureBox mainPicture;
 		private System.Windows.Forms.Label levelLabel;
-		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label linesLabel;
 		private System.Windows.Forms.Label scoreLabel;
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
@@ -30,7 +30,7 @@ namespace Tetris
 		private System.Windows.Forms.PictureBox nextFigurePicture;
 		private System.Windows.Forms.Label infoLabel;
 		private System.Windows.Forms.ToolStripMenuItem pauseResumeToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem boardSizeToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -57,7 +57,7 @@ namespace Tetris
 			this.infoLabel = new System.Windows.Forms.Label();
 			this.nextFigurePicture = new System.Windows.Forms.PictureBox();
 			this.levelLabel = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
+			this.linesLabel = new System.Windows.Forms.Label();
 			this.scoreLabel = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -68,7 +68,7 @@ namespace Tetris
 			this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.pauseResumeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.boardSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nextFigurePicture)).BeginInit();
@@ -81,7 +81,7 @@ namespace Tetris
 			this.panel1.Controls.Add(this.infoLabel);
 			this.panel1.Controls.Add(this.nextFigurePicture);
 			this.panel1.Controls.Add(this.levelLabel);
-			this.panel1.Controls.Add(this.label6);
+			this.panel1.Controls.Add(this.linesLabel);
 			this.panel1.Controls.Add(this.scoreLabel);
 			this.panel1.Controls.Add(this.label4);
 			this.panel1.Controls.Add(this.label3);
@@ -118,14 +118,14 @@ namespace Tetris
 			this.levelLabel.TabIndex = 6;
 			this.levelLabel.Text = "1";
 			// 
-			// label6
+			// linesLabel
 			// 
-			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label6.Location = new System.Drawing.Point(74, 68);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(82, 23);
-			this.label6.TabIndex = 5;
-			this.label6.Text = "0";
+			this.linesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.linesLabel.Location = new System.Drawing.Point(74, 68);
+			this.linesLabel.Name = "linesLabel";
+			this.linesLabel.Size = new System.Drawing.Size(82, 23);
+			this.linesLabel.TabIndex = 5;
+			this.linesLabel.Text = "0";
 			// 
 			// scoreLabel
 			// 
@@ -195,7 +195,7 @@ namespace Tetris
 			this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 			this.newGameToolStripMenuItem,
 			this.pauseResumeToolStripMenuItem,
-			this.boardSizeToolStripMenuItem,
+			this.optionsToolStripMenuItem,
 			this.exitToolStripMenuItem});
 			this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
 			this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
@@ -204,26 +204,30 @@ namespace Tetris
 			// newGameToolStripMenuItem
 			// 
 			this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-			this.newGameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.newGameToolStripMenuItem.ShortcutKeyDisplayString = "F2";
+			this.newGameToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
 			this.newGameToolStripMenuItem.Text = "New Game";
+			this.newGameToolStripMenuItem.Click += new System.EventHandler(this.NewGameToolStripMenuItemClick);
 			// 
 			// pauseResumeToolStripMenuItem
 			// 
 			this.pauseResumeToolStripMenuItem.Name = "pauseResumeToolStripMenuItem";
-			this.pauseResumeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.pauseResumeToolStripMenuItem.ShortcutKeyDisplayString = "P";
+			this.pauseResumeToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
 			this.pauseResumeToolStripMenuItem.Text = "Pause";
+			this.pauseResumeToolStripMenuItem.Click += new System.EventHandler(this.PauseResumeToolStripMenuItemClick);
 			// 
-			// boardSizeToolStripMenuItem
+			// optionsToolStripMenuItem
 			// 
-			this.boardSizeToolStripMenuItem.Name = "boardSizeToolStripMenuItem";
-			this.boardSizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.boardSizeToolStripMenuItem.Text = "Options...";
-			this.boardSizeToolStripMenuItem.Click += new System.EventHandler(this.BoardSizeToolStripMenuItemClick);
+			this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+			this.optionsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+			this.optionsToolStripMenuItem.Text = "Options...";
+			this.optionsToolStripMenuItem.Click += new System.EventHandler(this.OptionsToolStripMenuItemClick);
 			// 
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
 			this.exitToolStripMenuItem.Text = "Exit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
 			// 

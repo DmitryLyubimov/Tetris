@@ -28,6 +28,14 @@ namespace Tetris
 			get { return checkBox2.Checked; }
 		}
 		
+		public int FilledRows {
+			get { return (int) numericUpDown1.Value; }
+		}
+		
+		public int FreeSpace {
+			get { return (int) numericUpDown2.Value; }
+		}
+		
 		public OptionsForm()
 		{
 			//

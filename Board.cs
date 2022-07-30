@@ -122,15 +122,15 @@ namespace Tetris
 					matrix[y, x] = 0;
 		}
 		
-		public void FillRandom(int rows, Random rng)
+		public void FillRandom(int filledRows, int freeSpace, Random rng)
 		{
-			for (int k = 0; k < rows; k++)
+			for (int k = 0; k < filledRows; k++)
 			{
 				int y = ny-1-k;
 				for (int x = 0; x < nx; x++)
 				{
 					int z = rng.Next(10);
-					if (z <= 4) matrix[y, x] = 0;
+					if (z <= freeSpace) matrix[y, x] = 0;
 					else {
 						int id = rng.Next(7) + 1;
 						matrix[y, x] = id;

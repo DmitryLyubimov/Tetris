@@ -26,6 +26,11 @@ namespace Tetris
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.CheckBox checkBox2;
 		private System.Windows.Forms.CheckBox checkBox1;
+		private System.Windows.Forms.GroupBox groupBox4;
+		private System.Windows.Forms.NumericUpDown numericUpDown2;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.NumericUpDown numericUpDown1;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -58,11 +63,19 @@ namespace Tetris
 			this.radioButton5 = new System.Windows.Forms.RadioButton();
 			this.radioButton4 = new System.Windows.Forms.RadioButton();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.checkBox2 = new System.Windows.Forms.CheckBox();
+			this.checkBox1 = new System.Windows.Forms.CheckBox();
+			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
+			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
+			this.groupBox4.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// groupBox1
@@ -140,21 +153,21 @@ namespace Tetris
 			// 
 			// radioButton5
 			// 
-			this.radioButton5.Checked = true;
 			this.radioButton5.Location = new System.Drawing.Point(16, 49);
 			this.radioButton5.Name = "radioButton5";
 			this.radioButton5.Size = new System.Drawing.Size(104, 24);
 			this.radioButton5.TabIndex = 1;
-			this.radioButton5.TabStop = true;
 			this.radioButton5.Text = "Dark";
 			this.radioButton5.UseVisualStyleBackColor = true;
 			// 
 			// radioButton4
 			// 
+			this.radioButton4.Checked = true;
 			this.radioButton4.Location = new System.Drawing.Point(16, 19);
 			this.radioButton4.Name = "radioButton4";
 			this.radioButton4.Size = new System.Drawing.Size(104, 24);
 			this.radioButton4.TabIndex = 0;
+			this.radioButton4.TabStop = true;
 			this.radioButton4.Text = "Light";
 			this.radioButton4.UseVisualStyleBackColor = true;
 			// 
@@ -162,11 +175,22 @@ namespace Tetris
 			// 
 			this.groupBox3.Controls.Add(this.checkBox2);
 			this.groupBox3.Controls.Add(this.checkBox1);
-			this.groupBox3.Location = new System.Drawing.Point(188, 12);
+			this.groupBox3.Location = new System.Drawing.Point(188, 129);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(156, 111);
+			this.groupBox3.Size = new System.Drawing.Size(156, 81);
 			this.groupBox3.TabIndex = 4;
 			this.groupBox3.TabStop = false;
+			// 
+			// checkBox2
+			// 
+			this.checkBox2.Checked = true;
+			this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBox2.Location = new System.Drawing.Point(6, 49);
+			this.checkBox2.Name = "checkBox2";
+			this.checkBox2.Size = new System.Drawing.Size(104, 24);
+			this.checkBox2.TabIndex = 1;
+			this.checkBox2.Text = "Show shadow";
+			this.checkBox2.UseVisualStyleBackColor = true;
 			// 
 			// checkBox1
 			// 
@@ -177,22 +201,75 @@ namespace Tetris
 			this.checkBox1.Text = "Show grid";
 			this.checkBox1.UseVisualStyleBackColor = true;
 			// 
-			// checkBox2
+			// groupBox4
 			// 
-			this.checkBox2.Checked = true;
-			this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBox2.Location = new System.Drawing.Point(6, 50);
-			this.checkBox2.Name = "checkBox2";
-			this.checkBox2.Size = new System.Drawing.Size(104, 24);
-			this.checkBox2.TabIndex = 1;
-			this.checkBox2.Text = "Show shadow";
-			this.checkBox2.UseVisualStyleBackColor = true;
+			this.groupBox4.Controls.Add(this.numericUpDown2);
+			this.groupBox4.Controls.Add(this.label2);
+			this.groupBox4.Controls.Add(this.label1);
+			this.groupBox4.Controls.Add(this.numericUpDown1);
+			this.groupBox4.Location = new System.Drawing.Point(188, 12);
+			this.groupBox4.Name = "groupBox4";
+			this.groupBox4.Size = new System.Drawing.Size(156, 111);
+			this.groupBox4.TabIndex = 5;
+			this.groupBox4.TabStop = false;
+			this.groupBox4.Text = "Filled rows";
+			// 
+			// numericUpDown2
+			// 
+			this.numericUpDown2.Location = new System.Drawing.Point(76, 59);
+			this.numericUpDown2.Maximum = new decimal(new int[] {
+			9,
+			0,
+			0,
+			0});
+			this.numericUpDown2.Minimum = new decimal(new int[] {
+			2,
+			0,
+			0,
+			0});
+			this.numericUpDown2.Name = "numericUpDown2";
+			this.numericUpDown2.Size = new System.Drawing.Size(42, 20);
+			this.numericUpDown2.TabIndex = 3;
+			this.numericUpDown2.Value = new decimal(new int[] {
+			3,
+			0,
+			0,
+			0});
+			// 
+			// label2
+			// 
+			this.label2.Location = new System.Drawing.Point(6, 61);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(64, 23);
+			this.label2.TabIndex = 2;
+			this.label2.Text = "Free space";
+			// 
+			// label1
+			// 
+			this.label1.Location = new System.Drawing.Point(6, 28);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(64, 23);
+			this.label1.TabIndex = 1;
+			this.label1.Text = "Filled rows";
+			// 
+			// numericUpDown1
+			// 
+			this.numericUpDown1.Location = new System.Drawing.Point(76, 26);
+			this.numericUpDown1.Maximum = new decimal(new int[] {
+			15,
+			0,
+			0,
+			0});
+			this.numericUpDown1.Name = "numericUpDown1";
+			this.numericUpDown1.Size = new System.Drawing.Size(42, 20);
+			this.numericUpDown1.TabIndex = 0;
 			// 
 			// OptionsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(356, 263);
+			this.Controls.Add(this.groupBox4);
 			this.Controls.Add(this.groupBox3);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.button2);
@@ -206,6 +283,9 @@ namespace Tetris
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox3.ResumeLayout(false);
+			this.groupBox4.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
 			this.ResumeLayout(false);
 
 		}

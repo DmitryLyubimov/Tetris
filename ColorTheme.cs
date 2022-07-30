@@ -36,11 +36,11 @@ namespace Tetris
 			
 			theme.brushes = new Brush[9];
 			theme.brushes[0] = new SolidBrush(theme.backgroundColor);
-			theme.brushes[1] = Brushes.OrangeRed;
-			theme.brushes[2] = Brushes.LightSkyBlue;
+			theme.brushes[1] = Brushes.DeepPink;
+			theme.brushes[2] = Brushes.OrangeRed;
 			theme.brushes[3] = Brushes.Brown;
 			theme.brushes[4] = Brushes.LimeGreen;
-			theme.brushes[5] = Brushes.MediumPurple;
+			theme.brushes[5] = Brushes.Purple;
 			theme.brushes[6] = Brushes.RoyalBlue;
 			theme.brushes[7] = Brushes.Orange;
 			theme.brushes[8] = Brushes.DarkGray; // shadow

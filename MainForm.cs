@@ -170,5 +170,10 @@ namespace Tetris
 		{
 			this.Pause();
 		}
+		void AboutToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			var form = new AboutForm();
+			form.ShowDialog();
+		}
 	}
 }

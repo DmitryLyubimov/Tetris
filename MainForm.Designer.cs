@@ -31,6 +31,7 @@ namespace Tetris
 		private System.Windows.Forms.Label infoLabel;
 		private System.Windows.Forms.ToolStripMenuItem pauseResumeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -69,6 +70,7 @@ namespace Tetris
 			this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.pauseResumeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nextFigurePicture)).BeginInit();
@@ -196,6 +198,7 @@ namespace Tetris
 			this.newGameToolStripMenuItem,
 			this.pauseResumeToolStripMenuItem,
 			this.optionsToolStripMenuItem,
+			this.aboutToolStripMenuItem,
 			this.exitToolStripMenuItem});
 			this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
 			this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
@@ -205,7 +208,7 @@ namespace Tetris
 			// 
 			this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
 			this.newGameToolStripMenuItem.ShortcutKeyDisplayString = "F2";
-			this.newGameToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+			this.newGameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.newGameToolStripMenuItem.Text = "New Game";
 			this.newGameToolStripMenuItem.Click += new System.EventHandler(this.NewGameToolStripMenuItemClick);
 			// 
@@ -213,21 +216,29 @@ namespace Tetris
 			// 
 			this.pauseResumeToolStripMenuItem.Name = "pauseResumeToolStripMenuItem";
 			this.pauseResumeToolStripMenuItem.ShortcutKeyDisplayString = "P";
-			this.pauseResumeToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
-			this.pauseResumeToolStripMenuItem.Text = "Pause";
+			this.pauseResumeToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+			this.pauseResumeToolStripMenuItem.Text = "Pause/resume";
 			this.pauseResumeToolStripMenuItem.Click += new System.EventHandler(this.PauseResumeToolStripMenuItemClick);
 			// 
 			// optionsToolStripMenuItem
 			// 
 			this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-			this.optionsToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+			this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.optionsToolStripMenuItem.Text = "Options...";
 			this.optionsToolStripMenuItem.Click += new System.EventHandler(this.OptionsToolStripMenuItemClick);
+			// 
+			// aboutToolStripMenuItem
+			// 
+			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.aboutToolStripMenuItem.Text = "About...";
+			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItemClick);
 			// 
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+			this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.exitToolStripMenuItem.Text = "Exit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
 			// 

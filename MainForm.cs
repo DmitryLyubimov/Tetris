@@ -26,7 +26,7 @@ namespace Tetris
 		int nx = 10, ny = 20;
 		int cellSize = 20;
 		
-		bool showGrid = false;
+		bool showGrid = true;
 		bool showShadow = true;
 		
 		public MainForm()

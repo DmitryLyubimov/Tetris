@@ -19,15 +19,18 @@ namespace Tetris
 	{
 		Painter painter;
 		Painter nextPainter;
+		
 		Board board;
 		Figure figure;
 		Figure nextFigure;
 		Figure shadow;
+		
 		Random rng;
-		Timer timer;
+		
+		Timer moveDownTimer;
 		Timer gameDurationTimer;
-		int gamePlayTime;
-
+		int playTime;
+		
 		int droppedRows;
 		
 		enum State { Intro, Running, Paused, GameOver };
@@ -54,16 +57,16 @@ namespace Tetris
 		}
 			
 		public Game( PictureBox mainPicture, PictureBox nextPicture,
-		             int nx=10, int ny=20, int cellSize=20 )
+		             int nx=10, int ny=20, int cellSize=22 )
 		{
 			AdjustNewPicture(mainPicture, ref painter, nx, ny, cellSize);				
-			board = new Board(nx, ny);
 			AdjustNewPicture(nextPicture, ref nextPainter, 4, 4, cellSize);
+			board = new Board(nx, ny);
 			
 			rng = new Random();
 			
-			timer = new Timer();
-			timer.Tick += new System.EventHandler(this.TimerTick);
+			moveDownTimer = new Timer();
+			moveDownTimer.Tick += new System.EventHandler(this.MoveDownTick);
 			gameDurationTimer = new Timer();
 			gameDurationTimer.Interval = 1000;
 			gameDurationTimer.Tick += new System.EventHandler(this.DurationTick);
@@ -71,7 +74,7 @@ namespace Tetris
 			ShowShadow = true;
 			ShowGrid = true;
 			BoardFilledRows = 0;
-			BoardFreeSpace = 4;
+			BoardFreeSpace = 2;
 			state = State.Intro;
 		}
 
@@ -88,10 +91,10 @@ namespace Tetris
 			nextFigure = GetRandomFigure();
 			PutNewFigure();
 			
-			timer.Interval = 1000;
-			timer.Start();
+			moveDownTimer.Interval = 1000;
+			moveDownTimer.Start();
 			gameDurationTimer.Start();
-			gamePlayTime = 0;
+			playTime = 0;
 			
 			Render();
 		}
@@ -109,7 +112,6 @@ namespace Tetris
 			{
 				board.FillRandom(board.ny, 1, rng);
 				painter.DrawBoard(board);
-				painter.Update();
 			}
 			else
 			{
@@ -123,10 +125,10 @@ namespace Tetris
 				painter.DrawFigure(figure);
 				
 				if (shadow != null)
-					painter.DrawFigure(shadow);
-				
-				painter.Update();
+					painter.DrawFigure(shadow);				
 			}
+			
+			painter.Update();
 		}
 
 		public void ShowNextFigure()
@@ -148,7 +150,8 @@ namespace Tetris
 		{
 			if (GameOverEvent != null)
 				GameOverEvent();
-			timer.Stop();
+			
+			moveDownTimer.Stop();
 			gameDurationTimer.Stop();
 			state = State.GameOver;
 		}
@@ -169,16 +172,17 @@ namespace Tetris
 			ShowNextFigure();
 		}
 
-		void TimerTick(object sender, EventArgs e)
+		void MoveDownTick(object sender, EventArgs e)
 		{
 			MoveDown();
 		}
 
 		void DurationTick(object sender, EventArgs e)
 		{
-			gamePlayTime++;
+			playTime++;
+			
 			if (GameDurationTimerEvent != null)
-				GameDurationTimerEvent(gamePlayTime);
+				GameDurationTimerEvent(playTime);
 		}
 		
 		void UpdateScore(int rows)
@@ -188,19 +192,21 @@ namespace Tetris
 				case 0: return;
 				case 1: Score += 10*Level; break;
 				case 2: Score += 30*Level; break;
-				case 3: Score += 50*Level; break;
-				case 4: Score += 80*Level; break;
+				case 3: Score += 60*Level; break;
+				case 4: Score += 100*Level; break;
 			}	
 			
 			Lines += rows;
 			droppedRows += rows;
+			
 			if (droppedRows >= 10)
 			{
 				droppedRows = 0;
 				Level++;
-				timer.Interval -= 40;
-				if (timer.Interval < 60)
-					timer.Interval = 60;
+				moveDownTimer.Interval -= 40;
+				
+				if (moveDownTimer.Interval < 60)
+					moveDownTimer.Interval = 60;
 			}
 			
 			if (ScoreChangedEvent != null)
@@ -230,6 +236,7 @@ namespace Tetris
 		{
 			fig.Move(dx, dy);
 			bool success = board.ValidFigure(fig);
+			
 			if (!success)
 				fig.Move(-dx, -dy);
 			
@@ -240,6 +247,7 @@ namespace Tetris
 		{
 			var rotatedFigure = figure.Rotate();
 			bool success = board.ValidFigure(rotatedFigure);
+			
 			if (success)
 				figure = rotatedFigure;
 			
@@ -252,6 +260,7 @@ namespace Tetris
 				return;
 			
 			bool success = MoveFigure(figure, 1, 0);
+			
 			if (success) {
 				UpdateShadow();
 				Render();
@@ -264,6 +273,7 @@ namespace Tetris
 				return;
 
 			bool success = MoveFigure(figure, -1, 0);
+			
 			if (success) {
 				UpdateShadow();
 				Render();
@@ -277,6 +287,7 @@ namespace Tetris
 				return;
 
 			bool success = MoveFigure(figure, 0, 1);
+			
 			if (success) {
 				UpdateShadow();
 			}
@@ -296,6 +307,7 @@ namespace Tetris
 				return;
 
 			bool success = RotateFigure();
+			
 			if (success) {
 				UpdateShadow();
 				Render();
@@ -331,7 +343,7 @@ namespace Tetris
 		{
 			if (state == State.Running)
 			{
-				timer.Stop();
+				moveDownTimer.Stop();
 				gameDurationTimer.Stop();
 				state = State.Paused;
 			}
@@ -341,7 +353,7 @@ namespace Tetris
 		{
 			if (state == State.Paused)
 			{
-				timer.Start();
+				moveDownTimer.Start();
 				gameDurationTimer.Start();
 				state = State.Running;
 			}

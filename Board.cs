@@ -77,10 +77,7 @@ namespace Tetris
 					if (figure.shape[iy, ix] > 0) {
 						int x = figure.x + ix;
 						int y = figure.y + iy;
-						if (figure.shape[iy, ix] > 0)
-							matrix[y, x] = figure.typeId;
-						else
-							matrix[y, x] = 0;
+						matrix[y, x] = figure.typeId;
 					}
 				}
 		}
@@ -129,7 +126,7 @@ namespace Tetris
 				int y = ny-1-k;
 				for (int x = 0; x < nx; x++)
 				{
-					int z = rng.Next(10);
+					int z = rng.Next(12);
 					if (z <= freeSpace) matrix[y, x] = 0;
 					else {
 						int id = rng.Next(7) + 1;

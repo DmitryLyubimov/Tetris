@@ -225,7 +225,7 @@ namespace Tetris
 			0,
 			0});
 			this.numericUpDown2.Minimum = new decimal(new int[] {
-			2,
+			1,
 			0,
 			0,
 			0});
@@ -233,7 +233,7 @@ namespace Tetris
 			this.numericUpDown2.Size = new System.Drawing.Size(42, 20);
 			this.numericUpDown2.TabIndex = 3;
 			this.numericUpDown2.Value = new decimal(new int[] {
-			3,
+			2,
 			0,
 			0,
 			0});

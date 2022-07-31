@@ -82,7 +82,6 @@ namespace Tetris
 		
 		public void DrawFrameAroundPicture()
 		{
-			//Pen pen = new Pen(Theme.textColor);
 			var pen = Theme.gridPen;
 			graphics.DrawRectangle(pen, 0, 0, canvas.Width-1, canvas.Height-1);
 		}

@@ -18,9 +18,8 @@ namespace Tetris
 	{
 		public Color backgroundColor;
 		public Color textColor;
-		public Brush[] brushes;
-		public Brush shadowBrush;
 		public Pen gridPen;
+		public Brush[] brushes;
 
 		public static ColorTheme DefaultTheme()
 		{
@@ -33,6 +32,7 @@ namespace Tetris
 			
 			theme.backgroundColor = Color.FromArgb(250, 250, 230);
 			theme.textColor = Color.Black;
+			theme.gridPen = new Pen(Color.FromArgb(175, 175, 175));
 			
 			theme.brushes = new Brush[9];
 			theme.brushes[0] = new SolidBrush(theme.backgroundColor);
@@ -45,8 +45,6 @@ namespace Tetris
 			theme.brushes[7] = Brushes.Orange;
 			theme.brushes[8] = Brushes.DarkGray; // shadow
 			
-			theme.gridPen = new Pen(Color.FromArgb(175, 175, 175));
-			
 			return theme;
 		}
 		
@@ -56,6 +54,7 @@ namespace Tetris
 			
 			theme.backgroundColor = Color.FromArgb(45, 45, 45);
 			theme.textColor = Color.LightGray;
+			theme.gridPen = new Pen(Color.FromArgb(85, 85, 85));
 			
 			theme.brushes = new Brush[9];
 			theme.brushes[0] = new SolidBrush(theme.backgroundColor);
@@ -66,9 +65,7 @@ namespace Tetris
 			theme.brushes[5] = Brushes.Green;
 			theme.brushes[6] = Brushes.DodgerBlue;
 			theme.brushes[7] = Brushes.Gold;
-			theme.brushes[8] = Brushes.DarkGray; // shadow
-			
-			theme.gridPen = new Pen(Color.FromArgb(85, 85, 85));
+			theme.brushes[8] = Brushes.DarkGray; // shadow			
 			
 			return theme;
 		}		

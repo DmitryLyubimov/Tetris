@@ -24,11 +24,8 @@ namespace Tetris
 		
 		int boardSize = 1;
 		int nx = 10, ny = 20;
-		int cellSize = 20;
-		
-		bool showGrid = true;
-		bool showShadow = true;
-		
+		int cellSize = 22;
+			
 		public MainForm()
 		{
 			//
@@ -44,11 +41,13 @@ namespace Tetris
 		void InitGame()
 		{
 			game = new Game(mainPicture, nextFigurePicture, nx, ny, cellSize);
+			
 			game.ScoreChangedEvent += this.ScoreChanged;
 			game.GameOverEvent += this.GameOver;
 			game.GameDurationTimerEvent += this.GameDurationTimer;
-			game.ShowGrid = this.showGrid;
-			game.ShowShadow = this.showShadow;
+			
+			game.ShowGrid = true;
+			game.ShowShadow = true;
 
 			var clientWidth = mainPicture.Left + mainPicture.Width + 12;
 			var clientHeight = mainPicture.Top + mainPicture.Height + 12;
@@ -129,14 +128,15 @@ namespace Tetris
 			if (optionsForm == null)
 				optionsForm = new OptionsForm();
 			
-			var result = optionsForm.ShowDialog();
+			var result = optionsForm.ShowDialog();			
+			
 			if (result == DialogResult.Cancel)
 				return;
 			
 			switch (optionsForm.BoardSize)
 			{
 				case 1:
-					nx = 10; ny = 20; cellSize = 20;
+					nx = 10; ny = 20; cellSize = 22;
 					break;
 				case 2:
 					nx = 12; ny = 24; cellSize = 20;

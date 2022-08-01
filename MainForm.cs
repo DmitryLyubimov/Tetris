@@ -132,6 +132,7 @@ namespace Tetris
 			using (var file = new StreamWriter("results.txt", true))
 			{
 				var date = DateTime.Now.ToString("d");
+				var time = DateTime.Now.ToString("t");
 				var score = game.Score;
 				var playTime = HumanReadTime(game.PlayTime);
 				string size = "";
@@ -142,7 +143,7 @@ namespace Tetris
 					case 3: size = "Large"; break;
 				}
 				
-				file.WriteLine("{0} {1} {2} {3}", date, score, playTime, size);
+				file.WriteLine("{0} {1} {2} {3} {4}", date, time, score, playTime, size);
 			}
 		}
 		
@@ -152,6 +153,7 @@ namespace Tetris
 			
 			if (game.Score >= 10)
 				SaveResultsToFile();
+			
 		}
 		
 		void OptionsToolStripMenuItemClick(object sender, EventArgs e)
@@ -214,6 +216,11 @@ namespace Tetris
 		void AboutToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			var form = new AboutForm();
+			form.ShowDialog();
+		}
+		void BestResultsToolStripMenuItem1Click(object sender, EventArgs e)
+		{
+			var form = new RecordsForm();
 			form.ShowDialog();
 		}
 	}

@@ -34,6 +34,7 @@ namespace Tetris
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private System.Windows.Forms.Label elapsedTimeLabel;
 		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.ToolStripMenuItem bestResultsToolStripMenuItem1;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -75,6 +76,7 @@ namespace Tetris
 			this.pauseResumeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.bestResultsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nextFigurePicture)).BeginInit();
@@ -223,6 +225,7 @@ namespace Tetris
 			this.pauseResumeToolStripMenuItem,
 			this.optionsToolStripMenuItem,
 			this.aboutToolStripMenuItem,
+			this.bestResultsToolStripMenuItem1,
 			this.exitToolStripMenuItem});
 			this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
 			this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
@@ -257,6 +260,13 @@ namespace Tetris
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
 			this.aboutToolStripMenuItem.Text = "About...";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItemClick);
+			// 
+			// bestResultsToolStripMenuItem1
+			// 
+			this.bestResultsToolStripMenuItem1.Name = "bestResultsToolStripMenuItem1";
+			this.bestResultsToolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
+			this.bestResultsToolStripMenuItem1.Text = "Best results...";
+			this.bestResultsToolStripMenuItem1.Click += new System.EventHandler(this.BestResultsToolStripMenuItem1Click);
 			// 
 			// exitToolStripMenuItem
 			// 

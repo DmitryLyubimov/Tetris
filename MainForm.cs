@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Tetris
 {
@@ -111,16 +112,46 @@ namespace Tetris
 			levelLabel.Text = game.Level.ToString();
 		}
 
+		string HumanReadTime(int totalSeconds)
+		{
+			int seconds = totalSeconds % 60;
+			int minutes = totalSeconds / 60;
+			return String.Format("{0:d2}:{1:d2}", minutes, seconds);
+		}
+		
 		void GameDurationTimer(int elapsedTime)
 		{
-			int seconds = elapsedTime % 60;
-			int minutes = (elapsedTime / 60);
-			elapsedTimeLabel.Text = String.Format("{0:d2}:{1:d2}", minutes, seconds);
+//			int seconds = elapsedTime % 60;
+//			int minutes = (elapsedTime / 60);
+//			elapsedTimeLabel.Text = String.Format("{0:d2}:{1:d2}", minutes, seconds);
+			elapsedTimeLabel.Text = HumanReadTime(elapsedTime);
+		}
+		
+		void SaveResultsToFile()
+		{
+			using (var file = new StreamWriter("results.txt", true))
+			{
+				var date = DateTime.Now.ToString("d");
+				var score = game.Score;
+				var playTime = HumanReadTime(game.PlayTime);
+				string size = "";
+				switch (this.boardSize)
+				{
+					case 1: size = "Small"; break;
+					case 2: size = "Medium"; break;
+					case 3: size = "Large"; break;
+				}
+				
+				file.WriteLine("{0} {1} {2} {3}", date, score, playTime, size);
+			}
 		}
 		
 		void GameOver()
 		{
 			infoLabel.Text = "GAME OVER";
+			
+			if (game.Score >= 10)
+				SaveResultsToFile();
 		}
 		
 		void OptionsToolStripMenuItemClick(object sender, EventArgs e)

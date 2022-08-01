@@ -29,7 +29,6 @@ namespace Tetris
 		
 		Timer moveDownTimer;
 		Timer gameDurationTimer;
-		int playTime;
 		
 		int droppedRows;
 		
@@ -48,6 +47,7 @@ namespace Tetris
 		public int Score { get; set; }
 		public int Lines { get; set; }
 		public int Level { get; set; }
+		public int PlayTime { get; set; }
 		
 		public ColorTheme Theme {
 			set {
@@ -94,7 +94,7 @@ namespace Tetris
 			moveDownTimer.Interval = 1000;
 			moveDownTimer.Start();
 			gameDurationTimer.Start();
-			playTime = 0;
+			PlayTime = 0;
 			
 			Render();
 		}
@@ -179,10 +179,10 @@ namespace Tetris
 
 		void DurationTick(object sender, EventArgs e)
 		{
-			playTime++;
+			PlayTime++;
 			
 			if (GameDurationTimerEvent != null)
-				GameDurationTimerEvent(playTime);
+				GameDurationTimerEvent(PlayTime);
 		}
 		
 		void UpdateScore(int rows)

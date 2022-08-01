@@ -20,16 +20,15 @@ namespace Tetris
 	/// </summary>
 	public partial class RecordsForm : Form
 	{
+		
+		List<GameResult> recordsList;
+		
 		public RecordsForm()
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
-			InitializeComponent();
-			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
+			InitializeComponent();			
 		}
 		
 		void LoadRecordsFile()
@@ -42,7 +41,7 @@ namespace Tetris
 				return;
 			}
 			
-			var recordsList = new List<GameResult>();
+			recordsList = new List<GameResult>();
 			
 			foreach (var line in lines)
 			{
@@ -59,9 +58,19 @@ namespace Tetris
 				
 				recordsList.Add(record);
 			}
+		}
+		
+		void ShowRecords(string boardSizeSelector)
+		{			
+			IOrderedEnumerable<GameResult> sortedList;
+			if (boardSizeSelector == "All")
+				sortedList = recordsList.OrderByDescending(x => x.score);
+			else
+				sortedList = recordsList.
+					Where(x => x.size == boardSizeSelector).
+					OrderByDescending(x => x.score);
 			
-			var sortedList = recordsList.OrderByDescending(x => x.score);
-			
+			listView1.Items.Clear();
 			int rank = 1;
 			foreach (var record in sortedList)
 			{
@@ -73,18 +82,28 @@ namespace Tetris
 				lvi.SubItems.Add( new ListViewItem.ListViewSubItem(lvi, record.time) );
 				listView1.Items.Add(lvi);
 				
+				if (rank == 1) {
+					lvi.ForeColor = Color.Yellow;
+					lvi.BackColor = Color.DarkBlue;
+				}
+				
 				rank++;				
 			}
 		}
 		
 		void RecordsFormLoad(object sender, EventArgs e)
 		{
-			comboBox1.SelectedIndex = 0;
 			LoadRecordsFile();
+			comboBox1.SelectedIndex = 0;
 		}
 		void Button1Click(object sender, EventArgs e)
 		{
 			this.Close();
+		}
+		void ComboBox1SelectedIndexChanged(object sender, EventArgs e)
+		{
+			string boardSizeSelector = (string) comboBox1.SelectedItem;
+			ShowRecords(boardSizeSelector);			
 		}
 	}
 }

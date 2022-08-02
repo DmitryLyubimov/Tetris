@@ -72,7 +72,7 @@ namespace Tetris
 			this.columnTime});
 			this.listView1.Location = new System.Drawing.Point(12, 50);
 			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(398, 250);
+			this.listView1.Size = new System.Drawing.Size(407, 250);
 			this.listView1.TabIndex = 0;
 			this.listView1.UseCompatibleStateImageBehavior = false;
 			this.listView1.View = System.Windows.Forms.View.Details;
@@ -90,12 +90,12 @@ namespace Tetris
 			// columnDuration
 			// 
 			this.columnDuration.Text = "Duration";
-			this.columnDuration.Width = 72;
+			this.columnDuration.Width = 70;
 			// 
 			// columnBoardSize
 			// 
 			this.columnBoardSize.Text = "Board size";
-			this.columnBoardSize.Width = 76;
+			this.columnBoardSize.Width = 74;
 			// 
 			// columnDate
 			// 
@@ -146,7 +146,7 @@ namespace Tetris
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(422, 360);
+			this.ClientSize = new System.Drawing.Size(431, 360);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.comboBox1);

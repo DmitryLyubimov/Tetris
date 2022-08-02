@@ -151,7 +151,7 @@ namespace Tetris
 		{
 			infoLabel.Text = "GAME OVER";
 			
-			if (game.Score >= 10)
+			if (game.Score >= 100)
 				SaveResultsToFile();
 			
 		}

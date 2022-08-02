@@ -159,7 +159,7 @@ namespace Tetris
 		void PutNewFigure()
 		{
 			figure = nextFigure;
-			figure.MoveTo(board.nx / 2, 0);
+			figure.MoveTo(board.nx / 2 - 1, 0);
 			
 			if (board.ValidFigure(figure) == false) {
 				GameOver();

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="richTextBox1.Text" xml:space="preserve">
-    <value>This is Tetris game clone.
+    <value>Just another Tetris game.
 
 Rules: move blocks to form filled rows. Filled rows are dropped. Get scores for each dropped row.
 

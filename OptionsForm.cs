@@ -32,7 +32,7 @@ namespace Tetris
 			get { return (int) numericUpDown1.Value; }
 		}
 		
-		public int FreeSpace {
+		public int GridWidth {
 			get { return (int) numericUpDown2.Value; }
 		}
 		

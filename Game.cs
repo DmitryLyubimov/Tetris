@@ -55,6 +55,14 @@ namespace Tetris
 				nextPainter.Theme = value;
 			}
 		}
+		
+		public int GridWidth {
+			get { return painter.GridWidth; }
+			set {
+				painter.GridWidth = value;
+				nextPainter.GridWidth = value;
+			}
+		}
 			
 		public Game( PictureBox mainPicture, PictureBox nextPicture,
 		             int nx=10, int ny=20, int cellSize=22 )

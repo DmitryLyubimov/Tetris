@@ -23,14 +23,14 @@ namespace Tetris
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.RadioButton radioButton5;
 		private System.Windows.Forms.RadioButton radioButton4;
-		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.CheckBox checkBox2;
 		private System.Windows.Forms.CheckBox checkBox1;
 		private System.Windows.Forms.GroupBox groupBox4;
-		private System.Windows.Forms.NumericUpDown numericUpDown2;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.NumericUpDown numericUpDown1;
+		private System.Windows.Forms.NumericUpDown numericUpDown2;
+		private System.Windows.Forms.GroupBox groupBox3;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -62,20 +62,20 @@ namespace Tetris
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.radioButton5 = new System.Windows.Forms.RadioButton();
 			this.radioButton4 = new System.Windows.Forms.RadioButton();
-			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.checkBox2 = new System.Windows.Forms.CheckBox();
 			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+			this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
-			this.groupBox3.SuspendLayout();
 			this.groupBox4.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+			this.groupBox3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// groupBox1
@@ -171,16 +171,6 @@ namespace Tetris
 			this.radioButton4.Text = "Light";
 			this.radioButton4.UseVisualStyleBackColor = true;
 			// 
-			// groupBox3
-			// 
-			this.groupBox3.Controls.Add(this.checkBox2);
-			this.groupBox3.Controls.Add(this.checkBox1);
-			this.groupBox3.Location = new System.Drawing.Point(188, 129);
-			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(156, 81);
-			this.groupBox3.TabIndex = 4;
-			this.groupBox3.TabStop = false;
-			// 
 			// checkBox2
 			// 
 			this.checkBox2.Checked = true;
@@ -214,29 +204,6 @@ namespace Tetris
 			this.groupBox4.Size = new System.Drawing.Size(156, 111);
 			this.groupBox4.TabIndex = 5;
 			this.groupBox4.TabStop = false;
-			this.groupBox4.Text = "Filled rows";
-			// 
-			// numericUpDown2
-			// 
-			this.numericUpDown2.Location = new System.Drawing.Point(76, 59);
-			this.numericUpDown2.Maximum = new decimal(new int[] {
-			9,
-			0,
-			0,
-			0});
-			this.numericUpDown2.Minimum = new decimal(new int[] {
-			1,
-			0,
-			0,
-			0});
-			this.numericUpDown2.Name = "numericUpDown2";
-			this.numericUpDown2.Size = new System.Drawing.Size(42, 20);
-			this.numericUpDown2.TabIndex = 3;
-			this.numericUpDown2.Value = new decimal(new int[] {
-			2,
-			0,
-			0,
-			0});
 			// 
 			// label2
 			// 
@@ -244,7 +211,7 @@ namespace Tetris
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(64, 23);
 			this.label2.TabIndex = 2;
-			this.label2.Text = "Free space";
+			this.label2.Text = "Grid width";
 			// 
 			// label1
 			// 
@@ -266,13 +233,45 @@ namespace Tetris
 			this.numericUpDown1.Size = new System.Drawing.Size(42, 20);
 			this.numericUpDown1.TabIndex = 0;
 			// 
+			// numericUpDown2
+			// 
+			this.numericUpDown2.Location = new System.Drawing.Point(76, 59);
+			this.numericUpDown2.Maximum = new decimal(new int[] {
+			2,
+			0,
+			0,
+			0});
+			this.numericUpDown2.Minimum = new decimal(new int[] {
+			1,
+			0,
+			0,
+			0});
+			this.numericUpDown2.Name = "numericUpDown2";
+			this.numericUpDown2.Size = new System.Drawing.Size(42, 20);
+			this.numericUpDown2.TabIndex = 3;
+			this.numericUpDown2.Value = new decimal(new int[] {
+			1,
+			0,
+			0,
+			0});
+			// 
+			// groupBox3
+			// 
+			this.groupBox3.Controls.Add(this.checkBox1);
+			this.groupBox3.Controls.Add(this.checkBox2);
+			this.groupBox3.Location = new System.Drawing.Point(188, 129);
+			this.groupBox3.Name = "groupBox3";
+			this.groupBox3.Size = new System.Drawing.Size(156, 81);
+			this.groupBox3.TabIndex = 6;
+			this.groupBox3.TabStop = false;
+			// 
 			// OptionsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(356, 263);
-			this.Controls.Add(this.groupBox4);
 			this.Controls.Add(this.groupBox3);
+			this.Controls.Add(this.groupBox4);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
@@ -284,10 +283,10 @@ namespace Tetris
 			this.Text = "Options";
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
-			this.groupBox3.ResumeLayout(false);
 			this.groupBox4.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+			this.groupBox3.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}

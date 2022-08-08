@@ -33,7 +33,9 @@ namespace Tetris
 		public Graphics Graphics {
 			get { return graphics; }
 		}
-				
+
+		public int GridWidth { get; set; }
+		
 		public Painter(int nx, int ny, int dx, int dy, int padx, int pady)
 		{		
 			Theme = ColorTheme.DefaultTheme();
@@ -43,7 +45,8 @@ namespace Tetris
 			this.dx = dx;
 			this.dy = dy;
 			this.padx = padx;
-			this.pady = pady;			
+			this.pady = pady;
+			this.GridWidth = 1;
 		}
 		
 		public void SetPicture(PictureBox pic)
@@ -82,18 +85,20 @@ namespace Tetris
 		
 		public void DrawFrameAroundPicture()
 		{
-			var pen = Theme.gridPen;
-			graphics.DrawRectangle(pen, 0, 0, canvas.Width-1, canvas.Height-1);
+			var pen = new Pen(Theme.gridColor, GridWidth);
+			graphics.DrawRectangle(pen, GridWidth-1, GridWidth-1, canvas.Width-GridWidth, canvas.Height-GridWidth);
 		}
 		
 		public void DrawGrid()
 		{
+			var gridPen = new Pen(Theme.gridColor, GridWidth);
+			
 			for (int ix = 0; ix <= nx; ix++)
 			{
 				int x = GridX(ix);
 				int y1 = GridY(0);
 				int y2 = GridY(ny);
-				graphics.DrawLine(Theme.gridPen, x, y1, x, y2);
+				graphics.DrawLine(gridPen, x, y1, x, y2);
 			}
 			
 			for (int iy = 0; iy <= ny; iy++)
@@ -101,7 +106,7 @@ namespace Tetris
 				int y = GridY(iy);
 				int x1 = GridX(0);
 				int x2 = GridX(nx);
-				graphics.DrawLine(Theme.gridPen, x1, y, x2, y);
+				graphics.DrawLine(gridPen, x1, y, x2, y);
 			}
 		}
 		
@@ -109,7 +114,7 @@ namespace Tetris
 		{
 			int x = GridX(ix) + 1;
 			int y = GridY(iy) + 1;
-			graphics.FillRectangle(Theme.brushes[id], x, y, dx-1, dy-1);
+			graphics.FillRectangle(Theme.brushes[id], x, y, dx-GridWidth, dy-GridWidth);
 		}
 		
 		public void DrawFigure(Figure figure)

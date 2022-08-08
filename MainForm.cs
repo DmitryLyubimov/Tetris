@@ -49,6 +49,7 @@ namespace Tetris
 			
 			game.ShowGrid = true;
 			game.ShowShadow = true;
+			game.GridWidth = 1;
 
 			var clientWidth = mainPicture.Left + mainPicture.Width + 12;
 			var clientHeight = mainPicture.Top + mainPicture.Height + 12;
@@ -121,9 +122,6 @@ namespace Tetris
 		
 		void GameDurationTimer(int elapsedTime)
 		{
-//			int seconds = elapsedTime % 60;
-//			int minutes = (elapsedTime / 60);
-//			elapsedTimeLabel.Text = String.Format("{0:d2}:{1:d2}", minutes, seconds);
 			elapsedTimeLabel.Text = HumanReadTime(elapsedTime);
 		}
 		
@@ -195,7 +193,7 @@ namespace Tetris
 			game.ShowGrid = optionsForm.ShowGrid;
 			game.ShowShadow = optionsForm.ShowShadow;
 			game.BoardFilledRows = optionsForm.FilledRows;
-			game.BoardFreeSpace = optionsForm.FreeSpace;
+			game.GridWidth = optionsForm.GridWidth;
 			
 			game.Render();
 			game.ShowNextFigure();

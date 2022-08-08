@@ -90,6 +90,7 @@ namespace Tetris
 		{
 			droppedRows = 0;
 			Level = 1;
+			Lines = 0;
 			Score = 0;
 			state = State.Running;
 			

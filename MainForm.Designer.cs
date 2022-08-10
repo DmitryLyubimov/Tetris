@@ -35,6 +35,8 @@ namespace Tetris
 		private System.Windows.Forms.Label elapsedTimeLabel;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.ToolStripMenuItem bestResultsToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -78,6 +80,8 @@ namespace Tetris
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.bestResultsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nextFigurePicture)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.mainPicture)).BeginInit();
@@ -223,9 +227,11 @@ namespace Tetris
 			this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 			this.newGameToolStripMenuItem,
 			this.pauseResumeToolStripMenuItem,
+			this.toolStripSeparator2,
 			this.optionsToolStripMenuItem,
-			this.aboutToolStripMenuItem,
 			this.bestResultsToolStripMenuItem1,
+			this.aboutToolStripMenuItem,
+			this.toolStripSeparator1,
 			this.exitToolStripMenuItem});
 			this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
 			this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
@@ -275,6 +281,16 @@ namespace Tetris
 			this.exitToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
 			this.exitToolStripMenuItem.Text = "Exit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(160, 6);
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(160, 6);
 			// 
 			// MainForm
 			// 

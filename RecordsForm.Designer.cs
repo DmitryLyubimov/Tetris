@@ -151,7 +151,6 @@ namespace Tetris
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.comboBox1);
 			this.Controls.Add(this.listView1);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.Name = "RecordsForm";
 			this.Text = "Best results";

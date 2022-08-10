@@ -65,16 +65,16 @@ namespace Tetris
 			this.checkBox2 = new System.Windows.Forms.CheckBox();
 			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-			this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox4.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			this.groupBox3.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -205,6 +205,28 @@ namespace Tetris
 			this.groupBox4.TabIndex = 5;
 			this.groupBox4.TabStop = false;
 			// 
+			// numericUpDown2
+			// 
+			this.numericUpDown2.Location = new System.Drawing.Point(76, 59);
+			this.numericUpDown2.Maximum = new decimal(new int[] {
+			2,
+			0,
+			0,
+			0});
+			this.numericUpDown2.Minimum = new decimal(new int[] {
+			1,
+			0,
+			0,
+			0});
+			this.numericUpDown2.Name = "numericUpDown2";
+			this.numericUpDown2.Size = new System.Drawing.Size(42, 20);
+			this.numericUpDown2.TabIndex = 3;
+			this.numericUpDown2.Value = new decimal(new int[] {
+			1,
+			0,
+			0,
+			0});
+			// 
 			// label2
 			// 
 			this.label2.Location = new System.Drawing.Point(6, 61);
@@ -233,28 +255,6 @@ namespace Tetris
 			this.numericUpDown1.Size = new System.Drawing.Size(42, 20);
 			this.numericUpDown1.TabIndex = 0;
 			// 
-			// numericUpDown2
-			// 
-			this.numericUpDown2.Location = new System.Drawing.Point(76, 59);
-			this.numericUpDown2.Maximum = new decimal(new int[] {
-			2,
-			0,
-			0,
-			0});
-			this.numericUpDown2.Minimum = new decimal(new int[] {
-			1,
-			0,
-			0,
-			0});
-			this.numericUpDown2.Name = "numericUpDown2";
-			this.numericUpDown2.Size = new System.Drawing.Size(42, 20);
-			this.numericUpDown2.TabIndex = 3;
-			this.numericUpDown2.Value = new decimal(new int[] {
-			1,
-			0,
-			0,
-			0});
-			// 
 			// groupBox3
 			// 
 			this.groupBox3.Controls.Add(this.checkBox1);
@@ -278,14 +278,13 @@ namespace Tetris
 			this.Controls.Add(this.groupBox1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
-			this.MinimizeBox = false;
 			this.Name = "OptionsForm";
 			this.Text = "Options";
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox4.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
 			this.groupBox3.ResumeLayout(false);
 			this.ResumeLayout(false);
 

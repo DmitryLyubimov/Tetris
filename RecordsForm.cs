@@ -30,36 +30,7 @@ namespace Tetris
 			//
 			InitializeComponent();			
 		}
-		
-		void LoadRecordsFile()
-		{
-			IEnumerable<string> lines;
-			try {
-				lines = File.ReadLines("results.txt");
-			}
-			catch (Exception) {
-				return;
-			}
-			
-			recordsList = new List<GameResult>();
-			
-			foreach (var line in lines)
-			{
-				var v = line.Split(' ');
-				var date = v[0];
-				var time = v[1];
-				var score = int.Parse(v[2]);
-				var duration = v[3];
-				var size = v[4];
 				
-				var record = new GameResult {
-					date = date, time = time, score = score,
-					duration = duration, size = size };
-				
-				recordsList.Add(record);
-			}
-		}
-		
 		void ShowRecords(string boardSizeSelector)
 		{			
 			IOrderedEnumerable<GameResult> sortedList;
@@ -93,7 +64,8 @@ namespace Tetris
 		
 		void RecordsFormLoad(object sender, EventArgs e)
 		{
-			LoadRecordsFile();
+			var rf = new RecordsFile("results.txt");
+			recordsList = rf.Load();
 			comboBox1.SelectedIndex = 0;
 		}
 		void Button1Click(object sender, EventArgs e)

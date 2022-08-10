@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="Game.cs" />
     <Compile Include="GameResult.cs" />
+    <Compile Include="Helpers.cs" />
     <Compile Include="MainForm.cs" />
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -70,6 +71,7 @@
     <Compile Include="Figure.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecordsFile.cs" />
     <Compile Include="RecordsForm.cs" />
     <Compile Include="RecordsForm.Designer.cs">
       <DependentUpon>RecordsForm.cs</DependentUpon>

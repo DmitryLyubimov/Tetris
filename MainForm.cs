@@ -112,37 +112,10 @@ namespace Tetris
 			linesLabel.Text = game.Lines.ToString();
 			levelLabel.Text = game.Level.ToString();
 		}
-
-		string HumanReadTime(int totalSeconds)
-		{
-			int seconds = totalSeconds % 60;
-			int minutes = totalSeconds / 60;
-			return String.Format("{0:d2}:{1:d2}", minutes, seconds);
-		}
-		
+	
 		void GameDurationTimer(int elapsedTime)
 		{
-			elapsedTimeLabel.Text = HumanReadTime(elapsedTime);
-		}
-		
-		void SaveResultsToFile()
-		{
-			using (var file = new StreamWriter("results.txt", true))
-			{
-				var date = DateTime.Now.ToString("d");
-				var time = DateTime.Now.ToString("t");
-				var score = game.Score;
-				var playTime = HumanReadTime(game.PlayTime);
-				string size = "";
-				switch (this.boardSize)
-				{
-					case 1: size = "Small"; break;
-					case 2: size = "Medium"; break;
-					case 3: size = "Large"; break;
-				}
-				
-				file.WriteLine("{0} {1} {2} {3} {4}", date, time, score, playTime, size);
-			}
+			elapsedTimeLabel.Text = Helpers.HumanReadTime(elapsedTime);
 		}
 		
 		void GameOver()
@@ -150,8 +123,10 @@ namespace Tetris
 			infoLabel.Text = "GAME OVER";
 			
 			if (game.Score >= 100)
-				SaveResultsToFile();
-			
+			{
+				var rf = new RecordsFile("results.txt");
+				rf.Save(game.Score, game.PlayTime, this.boardSize);
+			}
 		}
 		
 		void OptionsToolStripMenuItemClick(object sender, EventArgs e)

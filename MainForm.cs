@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
+using System.Linq;
 
 namespace Tetris
 {
@@ -122,11 +123,22 @@ namespace Tetris
 		{
 			infoLabel.Text = "GAME OVER";
 			
-			if (game.Score >= 100)
-			{
-				var rf = new RecordsFile("results.txt");
-				rf.Save(game.Score, game.PlayTime, this.boardSize);
+			if (game.Score < 100)
+				return;
+			
+			var rf = new RecordsFile("results.txt");
+			var recordsList = rf.Load();
+			string boardSizeAsString = "Small";
+			switch (boardSize) {
+				case 1: boardSizeAsString = "Small"; break;
+				case 2: boardSizeAsString = "Medium"; break;
+				case 3: boardSizeAsString = "Large"; break;
 			}
+			 var minResult = recordsList.
+				Where(x => x.size == boardSizeAsString).
+				OrderByDescending(x => x.score).Take(20).Last();
+			if (minResult.score < game.Score)
+				rf.Save(game.Score, game.PlayTime, this.boardSize);
 		}
 		
 		void OptionsToolStripMenuItemClick(object sender, EventArgs e)

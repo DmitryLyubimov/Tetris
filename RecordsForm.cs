@@ -33,13 +33,15 @@ namespace Tetris
 				
 		void ShowRecords(string boardSizeSelector)
 		{			
-			IOrderedEnumerable<GameResult> sortedList;
+			IEnumerable<GameResult> sortedList;
 			if (boardSizeSelector == "All")
-				sortedList = recordsList.OrderByDescending(x => x.score);
+				sortedList = recordsList.OrderByDescending(x => x.score).Take(30);
 			else
+			{
 				sortedList = recordsList.
 					Where(x => x.size == boardSizeSelector).
-					OrderByDescending(x => x.score);
+					OrderByDescending(x => x.score).Take(20);
+			}
 			
 			listView1.Items.Clear();
 			int rank = 1;

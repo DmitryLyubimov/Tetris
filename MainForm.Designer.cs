@@ -21,7 +21,7 @@ namespace Tetris
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.PictureBox mainPicture;
 		private System.Windows.Forms.Label levelLabel;
-		private System.Windows.Forms.Label linesLabel;
+		private System.Windows.Forms.Label rowsLabel;
 		private System.Windows.Forms.Label scoreLabel;
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
@@ -65,7 +65,7 @@ namespace Tetris
 			this.infoLabel = new System.Windows.Forms.Label();
 			this.nextFigurePicture = new System.Windows.Forms.PictureBox();
 			this.levelLabel = new System.Windows.Forms.Label();
-			this.linesLabel = new System.Windows.Forms.Label();
+			this.rowsLabel = new System.Windows.Forms.Label();
 			this.scoreLabel = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -76,12 +76,12 @@ namespace Tetris
 			this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.pauseResumeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.bestResultsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.bestResultsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nextFigurePicture)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.mainPicture)).BeginInit();
@@ -95,7 +95,7 @@ namespace Tetris
 			this.panel1.Controls.Add(this.infoLabel);
 			this.panel1.Controls.Add(this.nextFigurePicture);
 			this.panel1.Controls.Add(this.levelLabel);
-			this.panel1.Controls.Add(this.linesLabel);
+			this.panel1.Controls.Add(this.rowsLabel);
 			this.panel1.Controls.Add(this.scoreLabel);
 			this.panel1.Controls.Add(this.label4);
 			this.panel1.Controls.Add(this.label3);
@@ -150,14 +150,14 @@ namespace Tetris
 			this.levelLabel.TabIndex = 6;
 			this.levelLabel.Text = "1";
 			// 
-			// linesLabel
+			// rowsLabel
 			// 
-			this.linesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.linesLabel.Location = new System.Drawing.Point(74, 68);
-			this.linesLabel.Name = "linesLabel";
-			this.linesLabel.Size = new System.Drawing.Size(82, 23);
-			this.linesLabel.TabIndex = 5;
-			this.linesLabel.Text = "0";
+			this.rowsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.rowsLabel.Location = new System.Drawing.Point(74, 68);
+			this.rowsLabel.Name = "rowsLabel";
+			this.rowsLabel.Size = new System.Drawing.Size(82, 23);
+			this.rowsLabel.TabIndex = 5;
+			this.rowsLabel.Text = "0";
 			// 
 			// scoreLabel
 			// 
@@ -184,7 +184,7 @@ namespace Tetris
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(56, 23);
 			this.label3.TabIndex = 2;
-			this.label3.Text = "Lines";
+			this.label3.Text = "Rows";
 			// 
 			// label2
 			// 
@@ -253,19 +253,17 @@ namespace Tetris
 			this.pauseResumeToolStripMenuItem.Text = "Pause/resume";
 			this.pauseResumeToolStripMenuItem.Click += new System.EventHandler(this.PauseResumeToolStripMenuItemClick);
 			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(160, 6);
+			// 
 			// optionsToolStripMenuItem
 			// 
 			this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
 			this.optionsToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
 			this.optionsToolStripMenuItem.Text = "Options...";
 			this.optionsToolStripMenuItem.Click += new System.EventHandler(this.OptionsToolStripMenuItemClick);
-			// 
-			// aboutToolStripMenuItem
-			// 
-			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-			this.aboutToolStripMenuItem.Text = "About...";
-			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItemClick);
 			// 
 			// bestResultsToolStripMenuItem1
 			// 
@@ -274,6 +272,18 @@ namespace Tetris
 			this.bestResultsToolStripMenuItem1.Text = "Best results...";
 			this.bestResultsToolStripMenuItem1.Click += new System.EventHandler(this.BestResultsToolStripMenuItem1Click);
 			// 
+			// aboutToolStripMenuItem
+			// 
+			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+			this.aboutToolStripMenuItem.Text = "About...";
+			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItemClick);
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(160, 6);
+			// 
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
@@ -281,16 +291,6 @@ namespace Tetris
 			this.exitToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
 			this.exitToolStripMenuItem.Text = "Exit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
-			// 
-			// toolStripSeparator1
-			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(160, 6);
-			// 
-			// toolStripSeparator2
-			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(160, 6);
 			// 
 			// MainForm
 			// 

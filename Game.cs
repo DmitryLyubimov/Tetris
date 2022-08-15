@@ -46,7 +46,7 @@ namespace Tetris
 		public int BoardFreeSpace { get; set; }
 		
 		public int Score { get; set; }
-		public int Lines { get; set; }
+		public int TotalRows { get; set; }
 		public int Level { get; set; }
 		public int PlayTime { get; set; }
 		
@@ -92,7 +92,7 @@ namespace Tetris
 			droppedRows = 0;
 			swapCooldown = 0;
 			Level = 1;
-			Lines = 0;
+			TotalRows = 0;
 			Score = 0;
 			state = State.Running;
 			
@@ -207,7 +207,7 @@ namespace Tetris
 				case 4: Score += 100*Level; break;
 			}	
 			
-			Lines += rows;
+			TotalRows += rows;
 			droppedRows += rows;
 			
 			if (droppedRows >= 10)

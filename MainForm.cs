@@ -110,7 +110,7 @@ namespace Tetris
 		void ScoreChanged()
 		{
 			scoreLabel.Text = game.Score.ToString();
-			linesLabel.Text = game.Lines.ToString();
+			rowsLabel.Text = game.TotalRows.ToString();
 			levelLabel.Text = game.Level.ToString();
 		}
 	

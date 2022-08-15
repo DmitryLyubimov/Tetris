@@ -31,6 +31,7 @@ namespace Tetris
 		Timer gameDurationTimer;
 		
 		int droppedRows;
+		int swapCooldown;
 		
 		enum State { Intro, Running, Paused, GameOver };
 		State state;
@@ -89,6 +90,7 @@ namespace Tetris
 		public void StartNewGame()
 		{
 			droppedRows = 0;
+			swapCooldown = 0;
 			Level = 1;
 			Lines = 0;
 			Score = 0;
@@ -305,6 +307,8 @@ namespace Tetris
 				int rows = board.DropFullRows();
 				UpdateScore(rows);				
 				PutNewFigure();
+				if (swapCooldown > 0)
+					--swapCooldown;
 			}
 			
 			Render();
@@ -337,6 +341,9 @@ namespace Tetris
 			if (state != State.Running)
 				return;
 			
+			if (swapCooldown > 0)
+				return;
+			
 			var t = figure;
 			figure = nextFigure;
 			nextFigure = t;
@@ -346,6 +353,7 @@ namespace Tetris
 			
 			Render();
 			ShowNextFigure();
+			swapCooldown = 2;
 		}
 		
 		public void Pause()

@@ -128,15 +128,23 @@ namespace Tetris
 			
 			var rf = new RecordsFile("results.txt");
 			var recordsList = rf.Load();
+			
+			if (recordsList == null) {
+				rf.Save(game.Score, game.PlayTime, this.boardSize);
+				return;
+			}
+			
 			string boardSizeAsString = "Small";
 			switch (boardSize) {
 				case 1: boardSizeAsString = "Small"; break;
 				case 2: boardSizeAsString = "Medium"; break;
 				case 3: boardSizeAsString = "Large"; break;
 			}
-			 var minResult = recordsList.
+			
+			var minResult = recordsList.
 				Where(x => x.size == boardSizeAsString).
 				OrderByDescending(x => x.score).Take(20).Last();
+			
 			if (minResult.score < game.Score)
 				rf.Save(game.Score, game.PlayTime, this.boardSize);
 		}

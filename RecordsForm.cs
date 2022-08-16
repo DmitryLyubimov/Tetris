@@ -33,6 +33,9 @@ namespace Tetris
 				
 		void ShowRecords(string boardSizeSelector)
 		{			
+			if (recordsList == null)
+				return;
+			
 			IEnumerable<GameResult> sortedList;
 			if (boardSizeSelector == "All")
 				sortedList = recordsList.OrderByDescending(x => x.score).Take(30);
@@ -54,12 +57,7 @@ namespace Tetris
 				lvi.SubItems.Add( new ListViewItem.ListViewSubItem(lvi, record.date) );
 				lvi.SubItems.Add( new ListViewItem.ListViewSubItem(lvi, record.time) );
 				listView1.Items.Add(lvi);
-				
-				if (rank == 1) {
-					lvi.ForeColor = Color.Yellow;
-					lvi.BackColor = Color.DarkBlue;
-				}
-				
+							
 				rank++;				
 			}
 		}

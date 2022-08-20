@@ -135,7 +135,7 @@ namespace Tetris
 				painter.DrawBoard(board);
 				painter.DrawFigure(figure);
 				
-				if (shadow != null)
+				if (ShowShadow && shadow != null)
 					painter.DrawFigure(shadow);				
 			}
 			

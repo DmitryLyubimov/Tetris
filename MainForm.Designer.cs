@@ -109,7 +109,7 @@ namespace Tetris
 			// elapsedTimeLabel
 			// 
 			this.elapsedTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.elapsedTimeLabel.Location = new System.Drawing.Point(74, 357);
+			this.elapsedTimeLabel.Location = new System.Drawing.Point(80, 357);
 			this.elapsedTimeLabel.Name = "elapsedTimeLabel";
 			this.elapsedTimeLabel.Size = new System.Drawing.Size(82, 23);
 			this.elapsedTimeLabel.TabIndex = 10;
@@ -118,7 +118,7 @@ namespace Tetris
 			// label5
 			// 
 			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label5.Location = new System.Drawing.Point(3, 357);
+			this.label5.Location = new System.Drawing.Point(9, 357);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(56, 23);
 			this.label5.TabIndex = 9;
@@ -127,7 +127,7 @@ namespace Tetris
 			// infoLabel
 			// 
 			this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.infoLabel.Location = new System.Drawing.Point(37, 159);
+			this.infoLabel.Location = new System.Drawing.Point(35, 159);
 			this.infoLabel.Name = "infoLabel";
 			this.infoLabel.Size = new System.Drawing.Size(115, 23);
 			this.infoLabel.TabIndex = 8;
@@ -144,7 +144,7 @@ namespace Tetris
 			// levelLabel
 			// 
 			this.levelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.levelLabel.Location = new System.Drawing.Point(74, 101);
+			this.levelLabel.Location = new System.Drawing.Point(80, 101);
 			this.levelLabel.Name = "levelLabel";
 			this.levelLabel.Size = new System.Drawing.Size(82, 23);
 			this.levelLabel.TabIndex = 6;
@@ -153,7 +153,7 @@ namespace Tetris
 			// rowsLabel
 			// 
 			this.rowsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.rowsLabel.Location = new System.Drawing.Point(74, 68);
+			this.rowsLabel.Location = new System.Drawing.Point(80, 68);
 			this.rowsLabel.Name = "rowsLabel";
 			this.rowsLabel.Size = new System.Drawing.Size(82, 23);
 			this.rowsLabel.TabIndex = 5;
@@ -162,7 +162,7 @@ namespace Tetris
 			// scoreLabel
 			// 
 			this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.scoreLabel.Location = new System.Drawing.Point(74, 35);
+			this.scoreLabel.Location = new System.Drawing.Point(80, 35);
 			this.scoreLabel.Name = "scoreLabel";
 			this.scoreLabel.Size = new System.Drawing.Size(82, 23);
 			this.scoreLabel.TabIndex = 4;
@@ -171,7 +171,7 @@ namespace Tetris
 			// label4
 			// 
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label4.Location = new System.Drawing.Point(3, 245);
+			this.label4.Location = new System.Drawing.Point(9, 245);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(56, 23);
 			this.label4.TabIndex = 3;
@@ -180,7 +180,7 @@ namespace Tetris
 			// label3
 			// 
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label3.Location = new System.Drawing.Point(3, 68);
+			this.label3.Location = new System.Drawing.Point(9, 68);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(56, 23);
 			this.label3.TabIndex = 2;
@@ -189,7 +189,7 @@ namespace Tetris
 			// label2
 			// 
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label2.Location = new System.Drawing.Point(3, 101);
+			this.label2.Location = new System.Drawing.Point(9, 101);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(56, 23);
 			this.label2.TabIndex = 1;
@@ -198,7 +198,7 @@ namespace Tetris
 			// label1
 			// 
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label1.Location = new System.Drawing.Point(3, 35);
+			this.label1.Location = new System.Drawing.Point(9, 35);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(56, 23);
 			this.label1.TabIndex = 0;

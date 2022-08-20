@@ -129,10 +129,8 @@ namespace Tetris
 			var rf = new RecordsFile("results.txt");
 			var recordsList = rf.Load();
 			
-			if (recordsList == null) {
-				rf.Save(game.Score, game.PlayTime, this.boardSize);
-				return;
-			}
+			if (recordsList == null)
+				goto fixResult;
 			
 			string boardSizeAsString = "Small";
 			switch (boardSize) {
@@ -141,12 +139,22 @@ namespace Tetris
 				case 3: boardSizeAsString = "Large"; break;
 			}
 			
-			var minResult = recordsList.
+			var bestResults = recordsList.
 				Where(x => x.size == boardSizeAsString).
-				OrderByDescending(x => x.score).Take(20).Last();
+				OrderByDescending(x => x.score).Take(20);
+			
+			if (bestResults.Count() < 20)
+				goto fixResult;
+			
+			var minResult = bestResults.Last();
 			
 			if (minResult.score < game.Score)
-				rf.Save(game.Score, game.PlayTime, this.boardSize);
+				goto fixResult;
+			
+			return;
+		
+		fixResult:
+			rf.Save(game.Score, game.PlayTime, this.boardSize);
 		}
 		
 		void OptionsToolStripMenuItemClick(object sender, EventArgs e)

@@ -158,13 +158,13 @@ namespace Tetris
 		}
 
 		void GameOver()
-		{
-			if (GameOverEvent != null)
-				GameOverEvent();
-			
+		{			
 			moveDownTimer.Stop();
 			gameDurationTimer.Stop();
 			state = State.GameOver;
+
+			if (GameOverEvent != null)
+				GameOverEvent();
 		}
 		
 		void PutNewFigure()

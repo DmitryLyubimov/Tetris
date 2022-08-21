@@ -11,9 +11,6 @@ using System.Drawing;
 
 namespace Tetris
 {
-	/// <summary>
-	/// Description of ColorTheme.
-	/// </summary>
 	public class ColorTheme
 	{
 		public Color backgroundColor;

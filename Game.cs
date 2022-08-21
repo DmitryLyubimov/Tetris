@@ -12,9 +12,6 @@ using System.Drawing;
 
 namespace Tetris
 {
-	/// <summary>
-	/// Description of Game.
-	/// </summary>
 	public class Game
 	{
 		Painter painter;
@@ -145,8 +142,10 @@ namespace Tetris
 		public void ShowNextFigure()
 		{
 			nextPainter.Clear();
+			
 			if (nextFigure != null)
 				nextPainter.DrawFigure(nextFigure);
+			
 			nextPainter.Update();
 		}
 		
@@ -302,11 +301,13 @@ namespace Tetris
 			if (success) {
 				UpdateShadow();
 			}
-			else {
+			else
+			{
 				board.Attach(figure);
 				int rows = board.DropFullRows();
 				UpdateScore(rows);				
 				PutNewFigure();
+				
 				if (swapCooldown > 0)
 					--swapCooldown;
 			}

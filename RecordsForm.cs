@@ -15,19 +15,12 @@ using System.Linq;
 
 namespace Tetris
 {
-	/// <summary>
-	/// Description of RecordsForm.
-	/// </summary>
 	public partial class RecordsForm : Form
 	{
-		
 		List<GameResult> recordsList;
 		
 		public RecordsForm()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
 			InitializeComponent();			
 		}
 				
@@ -48,14 +41,16 @@ namespace Tetris
 			
 			listView1.Items.Clear();
 			int rank = 1;
+			
 			foreach (var record in sortedList)
 			{
 				ListViewItem lvi = new ListViewItem(rank.ToString());
-				lvi.SubItems.Add( new ListViewItem.ListViewSubItem(lvi, record.score.ToString()) );
-				lvi.SubItems.Add( new ListViewItem.ListViewSubItem(lvi, record.duration) );
-				lvi.SubItems.Add( new ListViewItem.ListViewSubItem(lvi, record.size) );
-				lvi.SubItems.Add( new ListViewItem.ListViewSubItem(lvi, record.date) );
-				lvi.SubItems.Add( new ListViewItem.ListViewSubItem(lvi, record.time) );
+				lvi.UseItemStyleForSubItems = true;
+				lvi.SubItems.Add( record.score.ToString() );
+				lvi.SubItems.Add( record.duration );
+				lvi.SubItems.Add( record.size );
+				lvi.SubItems.Add( record.date );
+				lvi.SubItems.Add( record.time );
 				listView1.Items.Add(lvi);
 							
 				rank++;				
@@ -64,14 +59,16 @@ namespace Tetris
 		
 		void RecordsFormLoad(object sender, EventArgs e)
 		{
-			var rf = new RecordsFile("results.txt");
-			recordsList = rf.Load();
+			var recordsFile = new RecordsFile("results.txt");
+			recordsList = recordsFile.Load();
 			comboBox1.SelectedIndex = 0;
 		}
+		
 		void Button1Click(object sender, EventArgs e)
 		{
 			this.Close();
 		}
+		
 		void ComboBox1SelectedIndexChanged(object sender, EventArgs e)
 		{
 			string boardSizeSelector = (string) comboBox1.SelectedItem;

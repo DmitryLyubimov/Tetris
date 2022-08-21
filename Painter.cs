@@ -12,9 +12,6 @@ using System.Drawing;
 
 namespace Tetris
 {
-	/// <summary>
-	/// Description of Painter.
-	/// </summary>
 	public class Painter
 	{
 		PictureBox picture;

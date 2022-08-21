@@ -12,9 +12,6 @@ using System.IO;
 
 namespace Tetris
 {
-	/// <summary>
-	/// Description of RecordsFile.
-	/// </summary>
 	public class RecordsFile
 	{
 		string fileName;
@@ -31,13 +28,7 @@ namespace Tetris
 				var date = DateTime.Now.ToString("d");
 				var time = DateTime.Now.ToString("t");
 				var playTimeString = Helpers.HumanReadTime(playTime);
-				string sizeName = "";
-				switch (size)
-				{
-					case 1: sizeName = "Small"; break;
-					case 2: sizeName = "Medium"; break;
-					case 3: sizeName = "Large"; break;
-				}
+				var sizeName = Helpers.BoardSizeAsString(size);
 				
 				file.WriteLine("{0} {1} {2} {3} {4}", date, time, score, playTimeString, sizeName);
 			}

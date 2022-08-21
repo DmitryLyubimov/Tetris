@@ -10,9 +10,6 @@ using System;
 
 namespace Tetris
 {
-	/// <summary>
-	/// Description of Figure.
-	/// </summary>
 	public class Figure
 	{
 		public int x, y;
@@ -57,7 +54,8 @@ namespace Tetris
 		{
 			int [,] m;
 			
-			switch (id) {
+			switch (id)
+			{
 				case 1: m = m1; break;
 				case 2: m = m2; break;
 				case 3: m = m3; break;

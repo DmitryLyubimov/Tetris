@@ -11,7 +11,7 @@ using System;
 namespace Tetris
 {
 	/// <summary>
-	/// Description of Helpers.
+	/// Auxiliary functions.
 	/// </summary>
 	public static class Helpers
 	{
@@ -20,6 +20,20 @@ namespace Tetris
 			int seconds = totalSeconds % 60;
 			int minutes = totalSeconds / 60;
 			return String.Format("{0:d2}:{1:d2}", minutes, seconds);
+		}
+		
+		public static string BoardSizeAsString(int boardSizeAsInt)
+		{
+			string sizeName = "";
+			switch (boardSizeAsInt)
+			{
+				case 1: sizeName = "Small"; break;
+				case 2: sizeName = "Medium"; break;
+				case 3: sizeName = "Large"; break;
+				default: throw new Exception("Wrong board size");
+			}
+			
+			return sizeName;
 		}
 	}
 }

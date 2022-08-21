@@ -10,14 +10,10 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using System.IO;
 using System.Linq;
 
 namespace Tetris
 {
-	/// <summary>
-	/// Description of MainForm.
-	/// </summary>
 	public partial class MainForm : Form
 	{
 		Game game;
@@ -30,14 +26,9 @@ namespace Tetris
 			
 		public MainForm()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
 			InitializeComponent();
 			
 			InitGame();
-			
-			game.Render();
 		}
 		
 		void InitGame()
@@ -58,6 +49,8 @@ namespace Tetris
 
 			infoLabel.Text = "";
 			SetColorTheme(ColorTheme.Light());
+			
+			game.Render();
 		}
 		
 		void StartNewGame()
@@ -126,18 +119,13 @@ namespace Tetris
 			if (game.Score < 100)
 				return;
 			
-			var rf = new RecordsFile("results.txt");
-			var recordsList = rf.Load();
+			var recordsFile = new RecordsFile("results.txt");
+			var recordsList = recordsFile.Load();
 			
 			if (recordsList == null)
 				goto fixResult;
 			
-			string boardSizeAsString = "Small";
-			switch (boardSize) {
-				case 1: boardSizeAsString = "Small"; break;
-				case 2: boardSizeAsString = "Medium"; break;
-				case 3: boardSizeAsString = "Large"; break;
-			}
+			string boardSizeAsString = Helpers.BoardSizeAsString(boardSize);
 			
 			var bestResults = recordsList.
 				Where(x => x.size == boardSizeAsString).
@@ -148,13 +136,13 @@ namespace Tetris
 			
 			var minResult = bestResults.Last();
 			
-			if (minResult.score < game.Score)
+			if (game.Score > minResult.score)
 				goto fixResult;
 			
 			return;
 		
 		fixResult:
-			rf.Save(game.Score, game.PlayTime, this.boardSize);
+			recordsFile.Save(game.Score, game.PlayTime, this.boardSize);
 		}
 		
 		void OptionsToolStripMenuItemClick(object sender, EventArgs e)

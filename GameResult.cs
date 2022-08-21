@@ -10,9 +10,6 @@ using System;
 
 namespace Tetris
 {
-	/// <summary>
-	/// Description of GameResult.
-	/// </summary>
 	public struct GameResult
 	{
 		public string date;

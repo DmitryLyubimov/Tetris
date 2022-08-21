@@ -10,9 +10,6 @@ using System;
 
 namespace Tetris
 {
-	/// <summary>
-	/// Description of Board.
-	/// </summary>
 	public class Board
 	{
 		public int[,] matrix;
@@ -37,7 +34,7 @@ namespace Tetris
 			return false;			
 		}
 		
-		public bool OutOfBox(Figure figure)
+		public bool OutOfBoard(Figure figure)
 		{
 			for (int ix = 0; ix < figure.nx; ix++)
 				for (int iy = 0; iy < figure.ny; iy++)
@@ -66,7 +63,7 @@ namespace Tetris
 		
 		public bool ValidFigure(Figure figure)
 		{
-			return ! OutOfBox(figure) && ! Overlaps(figure);
+			return ! OutOfBoard(figure) && ! Overlaps(figure);
 		}
 		
 		public void Attach(Figure figure)
@@ -74,7 +71,8 @@ namespace Tetris
 			for (int ix = 0; ix < figure.nx; ix++)
 				for (int iy = 0; iy < figure.ny; iy++)
 				{
-					if (figure.shape[iy, ix] > 0) {
+					if (figure.shape[iy, ix] > 0)
+					{
 						int x = figure.x + ix;
 						int y = figure.y + iy;
 						matrix[y, x] = figure.typeId;

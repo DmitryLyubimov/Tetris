@@ -27,7 +27,7 @@ namespace Tetris
 			get { return matrix.GetLength(0); }
 		}
 		
-		public bool OutOfBox(int x, int y)
+		public bool OutOfBoard(int x, int y)
 		{
 			if (x < 0 || x >= nx) return true;
 			if (y < 0 || y >= ny) return true;
@@ -41,7 +41,7 @@ namespace Tetris
 				{
 					if (figure.shape[iy, ix] > 0)
 					{
-						if ( OutOfBox(figure.AbsX(ix), figure.AbsY(iy)) )
+						if ( OutOfBoard(figure.AbsX(ix), figure.AbsY(iy)) )
 							return true;
 					}
 				}

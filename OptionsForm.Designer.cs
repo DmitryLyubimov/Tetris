@@ -96,7 +96,7 @@ namespace Tetris
 			this.radioButton3.Name = "radioButton3";
 			this.radioButton3.Size = new System.Drawing.Size(130, 24);
 			this.radioButton3.TabIndex = 2;
-			this.radioButton3.Text = "Large size (15x30)";
+			this.radioButton3.Text = "Large (14x28)";
 			this.radioButton3.UseVisualStyleBackColor = true;
 			// 
 			// radioButton2
@@ -105,7 +105,7 @@ namespace Tetris
 			this.radioButton2.Name = "radioButton2";
 			this.radioButton2.Size = new System.Drawing.Size(130, 24);
 			this.radioButton2.TabIndex = 1;
-			this.radioButton2.Text = "Medium size (12x24)";
+			this.radioButton2.Text = "Medium (12x24)";
 			this.radioButton2.UseVisualStyleBackColor = true;
 			// 
 			// radioButton1
@@ -116,7 +116,7 @@ namespace Tetris
 			this.radioButton1.Size = new System.Drawing.Size(130, 24);
 			this.radioButton1.TabIndex = 0;
 			this.radioButton1.TabStop = true;
-			this.radioButton1.Text = "Small size (10x20)";
+			this.radioButton1.Text = "Small (10x20)";
 			this.radioButton1.UseVisualStyleBackColor = true;
 			// 
 			// button1

@@ -26,8 +26,7 @@ namespace Tetris
 			
 		public MainForm()
 		{
-			InitializeComponent();
-			
+			InitializeComponent();			
 			InitGame();
 		}
 		
@@ -168,7 +167,7 @@ namespace Tetris
 					nx = 12; ny = 24; cellSize = 20;
 					break;
 				case 3:
-					nx = 15; ny = 30; cellSize = 18;
+					nx = 14; ny = 28; cellSize = 18;
 					break;
 			}
 			

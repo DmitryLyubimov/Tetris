@@ -17,5 +17,14 @@ namespace Tetris
 		public int score;
 		public string duration;
 		public string size;
+		
+		public bool EqualsTo(GameResult r)
+		{
+			return (date == r.date) &&
+				(time == r.time) &&
+				(score == r.score) &&
+				(duration == r.duration) &&
+				(size == r.size);
+		}
 	}
 }

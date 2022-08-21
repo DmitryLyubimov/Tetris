@@ -143,6 +143,10 @@ namespace Tetris
 		
 		fixResult:
 			recordsFile.Save(game.Score, game.PlayTime, this.boardSize);
+			var form = new RecordsForm();
+			form.HighlightLastResult = true;
+			form.SelectGameSize(boardSize);
+			form.ShowDialog();
 		}
 		
 		void OptionsToolStripMenuItemClick(object sender, EventArgs e)

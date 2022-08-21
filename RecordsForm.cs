@@ -9,7 +9,6 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,16 +17,24 @@ namespace Tetris
 	public partial class RecordsForm : Form
 	{
 		List<GameResult> recordsList;
+		public bool HighlightLastResult { get; set; }
 		
 		public RecordsForm()
 		{
-			InitializeComponent();			
+			InitializeComponent();
+			
+			HighlightLastResult = false;
+			var recordsFile = new RecordsFile("results.txt");
+			recordsList = recordsFile.Load();
+			comboBox1.SelectedIndex = 0;			
 		}
 				
 		void ShowRecords(string boardSizeSelector)
 		{			
 			if (recordsList == null)
 				return;
+			
+			GameResult lastResult = recordsList.Last();
 			
 			IEnumerable<GameResult> sortedList;
 			if (boardSizeSelector == "All")
@@ -42,26 +49,28 @@ namespace Tetris
 			listView1.Items.Clear();
 			int rank = 1;
 			
-			foreach (var record in sortedList)
+			foreach (var result in sortedList)
 			{
 				ListViewItem lvi = new ListViewItem(rank.ToString());
 				lvi.UseItemStyleForSubItems = true;
-				lvi.SubItems.Add( record.score.ToString() );
-				lvi.SubItems.Add( record.duration );
-				lvi.SubItems.Add( record.size );
-				lvi.SubItems.Add( record.date );
-				lvi.SubItems.Add( record.time );
+				lvi.SubItems.Add( result.score.ToString() );
+				lvi.SubItems.Add( result.duration );
+				lvi.SubItems.Add( result.size );
+				lvi.SubItems.Add( result.date + " " + result.time );
 				listView1.Items.Add(lvi);
 							
+				if (HighlightLastResult && result.EqualsTo(lastResult)) {
+					lvi.ForeColor = Color.Yellow;
+					lvi.BackColor = Color.DarkBlue;
+				}
+				
 				rank++;				
 			}
 		}
 		
-		void RecordsFormLoad(object sender, EventArgs e)
+		public void SelectGameSize(int size)
 		{
-			var recordsFile = new RecordsFile("results.txt");
-			recordsList = recordsFile.Load();
-			comboBox1.SelectedIndex = 0;
+			comboBox1.SelectedIndex = size;
 		}
 		
 		void Button1Click(object sender, EventArgs e)

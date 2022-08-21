@@ -23,7 +23,6 @@ namespace Tetris
 		private System.Windows.Forms.ComboBox comboBox1;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.ColumnHeader columnTime;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -52,7 +51,6 @@ namespace Tetris
 			this.columnDuration = new System.Windows.Forms.ColumnHeader();
 			this.columnBoardSize = new System.Windows.Forms.ColumnHeader();
 			this.columnDate = new System.Windows.Forms.ColumnHeader();
-			this.columnTime = new System.Windows.Forms.ColumnHeader();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.button1 = new System.Windows.Forms.Button();
@@ -68,8 +66,7 @@ namespace Tetris
 			this.columnScore,
 			this.columnDuration,
 			this.columnBoardSize,
-			this.columnDate,
-			this.columnTime});
+			this.columnDate});
 			this.listView1.Location = new System.Drawing.Point(12, 50);
 			this.listView1.Name = "listView1";
 			this.listView1.Size = new System.Drawing.Size(407, 250);
@@ -99,13 +96,8 @@ namespace Tetris
 			// 
 			// columnDate
 			// 
-			this.columnDate.Text = "Date";
-			this.columnDate.Width = 71;
-			// 
-			// columnTime
-			// 
-			this.columnTime.Text = "Time";
-			this.columnTime.Width = 65;
+			this.columnDate.Text = "Date and time";
+			this.columnDate.Width = 97;
 			// 
 			// comboBox1
 			// 
@@ -154,7 +146,6 @@ namespace Tetris
 			this.MaximizeBox = false;
 			this.Name = "RecordsForm";
 			this.Text = "Best results";
-			this.Load += new System.EventHandler(this.RecordsFormLoad);
 			this.ResumeLayout(false);
 
 		}

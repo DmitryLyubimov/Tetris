@@ -40,7 +40,6 @@ namespace Tetris
 			
 			game.ShowGrid = true;
 			game.ShowShadow = true;
-			game.GridWidth = 1;
 
 			var clientWidth = mainPicture.Left + mainPicture.Width + 12;
 			var clientHeight = mainPicture.Top + mainPicture.Height + 12;
@@ -187,7 +186,7 @@ namespace Tetris
 			game.ShowGrid = optionsForm.ShowGrid;
 			game.ShowShadow = optionsForm.ShowShadow;
 			game.BoardFilledRows = optionsForm.FilledRows;
-			game.GridWidth = optionsForm.GridWidth;
+			game.CellVisualStyle = optionsForm.CellVisualStyle;
 			
 			game.Render();
 			game.ShowNextFigure();

@@ -53,14 +53,13 @@ namespace Tetris
 			}
 		}
 		
-		public int GridWidth {
-			get { return painter.GridWidth; }
+		public int CellVisualStyle {
 			set {
-				painter.GridWidth = value;
-				nextPainter.GridWidth = value;
+				painter.SetVisualStyle(value);
+				nextPainter.SetVisualStyle(value);
 			}
 		}
-			
+		
 		public Game( PictureBox mainPicture, PictureBox nextPicture,
 		             int nx=10, int ny=20, int cellSize=22 )
 		{
@@ -115,14 +114,16 @@ namespace Tetris
 	
 		public void Render()
 		{
+			painter.Clear();
+			
 			if (state == State.Intro)
 			{
+				
 				board.FillRandom(board.ny, 1, rng);
 				painter.DrawBoard(board);
 			}
 			else
 			{
-				painter.Clear();
 				painter.DrawFrameAroundPicture();
 				
 				if (ShowGrid)

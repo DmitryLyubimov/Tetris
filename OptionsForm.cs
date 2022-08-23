@@ -16,6 +16,7 @@ namespace Tetris
 	{		
 		public int BoardSize { get; set; }
 		public int ColorTheme { get; set; }
+		public int CellVisualStyle { get; set; }
 		
 		public bool ShowGrid {
 			get { return checkBox1.Checked; }
@@ -29,13 +30,17 @@ namespace Tetris
 			get { return (int) numericUpDown1.Value; }
 		}
 		
-		public int GridWidth {
-			get { return (int) numericUpDown2.Value; }
-		}
+		Painter painter;
+		Figure figure;
 		
 		public OptionsForm()
 		{
 			InitializeComponent();
+			
+			painter = new Painter(3, 3, 18, 18, 3, 3);
+			painter.SetPicture(pictureBox1);
+			figure = Figure.CreateFigure(4);
+			DrawPreview(1);
 		}
 		
 		void Button1Click(object sender, EventArgs e)
@@ -45,7 +50,32 @@ namespace Tetris
 			if (radioButton3.Checked) BoardSize = 3;
 			
 			if (radioButton4.Checked) ColorTheme = 1;
-			if (radioButton5.Checked) ColorTheme = 2;			
+			if (radioButton5.Checked) ColorTheme = 2;
+
+			if (radioButton6.Checked) CellVisualStyle = 1;
+			if (radioButton7.Checked) CellVisualStyle = 2;
+			if (radioButton8.Checked) CellVisualStyle = 3;
+		}
+		
+		void DrawPreview(int style)
+		{
+			painter.SetVisualStyle(style);
+			painter.Clear();
+			painter.DrawFigure(figure);
+			painter.Update();
+		}
+		
+		void RadioButton6CheckedChanged(object sender, EventArgs e)
+		{
+			DrawPreview(1);
+		}
+		void RadioButton7CheckedChanged(object sender, EventArgs e)
+		{
+			DrawPreview(2);
+		}
+		void RadioButton8CheckedChanged(object sender, EventArgs e)
+		{
+			DrawPreview(3);
 		}
 	}
 }

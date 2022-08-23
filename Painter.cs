@@ -30,8 +30,6 @@ namespace Tetris
 		public Graphics Graphics {
 			get { return graphics; }
 		}
-
-		public int GridWidth { get; set; }
 		
 		public Painter(int nx, int ny, int dx, int dy, int padx, int pady)
 		{		
@@ -43,7 +41,8 @@ namespace Tetris
 			this.dy = dy;
 			this.padx = padx;
 			this.pady = pady;
-			this.GridWidth = 1;
+			
+			SetVisualStyle(1);
 		}
 		
 		public void SetPicture(PictureBox pic)
@@ -82,13 +81,13 @@ namespace Tetris
 		
 		public void DrawFrameAroundPicture()
 		{
-			var pen = new Pen(Theme.gridColor, GridWidth);
-			graphics.DrawRectangle(pen, GridWidth-1, GridWidth-1, canvas.Width-GridWidth, canvas.Height-GridWidth);
+			var pen = new Pen(Theme.gridColor);
+			graphics.DrawRectangle(pen, 0, 0, canvas.Width-1, canvas.Height-1);
 		}
 		
 		public void DrawGrid()
 		{
-			var gridPen = new Pen(Theme.gridColor, GridWidth);
+			var gridPen = new Pen(Theme.gridColor);
 			
 			for (int ix = 0; ix <= nx; ix++)
 			{
@@ -107,11 +106,48 @@ namespace Tetris
 			}
 		}
 		
-		public void DrawCell(int ix, int iy, int id)
+		public delegate void DrawCellDelegate(int ix, int iy, int id);
+		public DrawCellDelegate DrawCell;
+		
+		public void SetVisualStyle(int style)
 		{
-			int x = GridX(ix) + 1;
-			int y = GridY(iy) + 1;
-			graphics.FillRectangle(Theme.brushes[id], x, y, dx-GridWidth, dy-GridWidth);
+			switch (style)
+			{
+				case 1:
+					DrawCell = DrawCell_1;
+					break;
+				case 2:
+					DrawCell = DrawCell_2;
+					break;
+				case 3:
+					DrawCell = DrawCell_3;
+					break;
+				default:
+					throw new Exception("Unknown visual style");
+			}
+		}
+				
+		public void DrawCell_1(int ix, int iy, int id)
+		{
+			int x = GridX(ix);
+			int y = GridY(iy);
+			graphics.FillRectangle(Theme.brushes[id], x+1, y+1, dx-1, dy-1);
+		}
+
+		public void DrawCell_2(int ix, int iy, int id)
+		{
+			int x = GridX(ix);
+			int y = GridY(iy);
+			graphics.FillRectangle(Theme.brushes[id], x+1, y+1, dx-2, dy-2);
+			graphics.DrawRectangle(Pens.Black, x+1, y+1, dx-2, dy-2);
+		}
+
+		public void DrawCell_3(int ix, int iy, int id)
+		{
+			int x = GridX(ix);
+			int y = GridY(iy);
+			graphics.FillRectangle(Theme.brushes[id], x+1, y+1, dx-1, dy-1);
+			graphics.DrawRectangle(Pens.Black, x, y, dx, dy);
 		}
 		
 		public void DrawFigure(Figure figure)
@@ -129,7 +165,8 @@ namespace Tetris
 			for (int x = 0; x < board.nx; x++)
 				for (int y = 0; y < board.ny; y++)
 				{
-					DrawCell(x, y, board.matrix[y, x]);
+					if (board.matrix[y, x] > 0)
+						DrawCell(x, y, board.matrix[y, x]);
 				}
 		}		
 		

@@ -132,22 +132,22 @@ namespace Tetris
 			int x = GridX(ix);
 			int y = GridY(iy);
 			graphics.FillRectangle(Theme.brushes[id], x+1, y+1, dx-1, dy-1);
+			graphics.DrawRectangle(Pens.Black, x, y, dx, dy);
 		}
 
 		public void DrawCell_2(int ix, int iy, int id)
 		{
 			int x = GridX(ix);
 			int y = GridY(iy);
-			graphics.FillRectangle(Theme.brushes[id], x+1, y+1, dx-2, dy-2);
-			graphics.DrawRectangle(Pens.Black, x+1, y+1, dx-2, dy-2);
+			graphics.FillRectangle(Theme.brushes[id], x+1, y+1, dx-1, dy-1);
 		}
 
 		public void DrawCell_3(int ix, int iy, int id)
 		{
 			int x = GridX(ix);
 			int y = GridY(iy);
-			graphics.FillRectangle(Theme.brushes[id], x+1, y+1, dx-1, dy-1);
-			graphics.DrawRectangle(Pens.Black, x, y, dx, dy);
+			graphics.FillRectangle(Theme.brushes[id], x+1, y+1, dx-2, dy-2);
+			graphics.DrawRectangle(Pens.Black, x+1, y+1, dx-2, dy-2);
 		}
 		
 		public void DrawFigure(Figure figure)

@@ -16,12 +16,10 @@ namespace Tetris
 		private System.ComponentModel.IContainer components = null;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.PictureBox mainPicture;
 		private System.Windows.Forms.Label levelLabel;
-		private System.Windows.Forms.Label rowsLabel;
 		private System.Windows.Forms.Label scoreLabel;
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
@@ -65,10 +63,8 @@ namespace Tetris
 			this.infoLabel = new System.Windows.Forms.Label();
 			this.nextFigurePicture = new System.Windows.Forms.PictureBox();
 			this.levelLabel = new System.Windows.Forms.Label();
-			this.rowsLabel = new System.Windows.Forms.Label();
 			this.scoreLabel = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.mainPicture = new System.Windows.Forms.PictureBox();
@@ -95,10 +91,8 @@ namespace Tetris
 			this.panel1.Controls.Add(this.infoLabel);
 			this.panel1.Controls.Add(this.nextFigurePicture);
 			this.panel1.Controls.Add(this.levelLabel);
-			this.panel1.Controls.Add(this.rowsLabel);
 			this.panel1.Controls.Add(this.scoreLabel);
 			this.panel1.Controls.Add(this.label4);
-			this.panel1.Controls.Add(this.label3);
 			this.panel1.Controls.Add(this.label2);
 			this.panel1.Controls.Add(this.label1);
 			this.panel1.Location = new System.Drawing.Point(12, 38);
@@ -113,7 +107,7 @@ namespace Tetris
 			this.elapsedTimeLabel.Name = "elapsedTimeLabel";
 			this.elapsedTimeLabel.Size = new System.Drawing.Size(82, 23);
 			this.elapsedTimeLabel.TabIndex = 10;
-			this.elapsedTimeLabel.Text = "0";
+			this.elapsedTimeLabel.Text = "00:00";
 			// 
 			// label5
 			// 
@@ -150,19 +144,10 @@ namespace Tetris
 			this.levelLabel.TabIndex = 6;
 			this.levelLabel.Text = "1";
 			// 
-			// rowsLabel
-			// 
-			this.rowsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.rowsLabel.Location = new System.Drawing.Point(80, 68);
-			this.rowsLabel.Name = "rowsLabel";
-			this.rowsLabel.Size = new System.Drawing.Size(82, 23);
-			this.rowsLabel.TabIndex = 5;
-			this.rowsLabel.Text = "0";
-			// 
 			// scoreLabel
 			// 
 			this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.scoreLabel.Location = new System.Drawing.Point(80, 35);
+			this.scoreLabel.Location = new System.Drawing.Point(80, 71);
 			this.scoreLabel.Name = "scoreLabel";
 			this.scoreLabel.Size = new System.Drawing.Size(82, 23);
 			this.scoreLabel.TabIndex = 4;
@@ -177,15 +162,6 @@ namespace Tetris
 			this.label4.TabIndex = 3;
 			this.label4.Text = "Next";
 			// 
-			// label3
-			// 
-			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label3.Location = new System.Drawing.Point(9, 68);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(56, 23);
-			this.label3.TabIndex = 2;
-			this.label3.Text = "Rows";
-			// 
 			// label2
 			// 
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -198,7 +174,7 @@ namespace Tetris
 			// label1
 			// 
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label1.Location = new System.Drawing.Point(9, 35);
+			this.label1.Location = new System.Drawing.Point(9, 71);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(56, 23);
 			this.label1.TabIndex = 0;

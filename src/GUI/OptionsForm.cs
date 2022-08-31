@@ -77,5 +77,9 @@ namespace Tetris
 		{
 			DrawPreview(3);
 		}
+		void RadioButton9CheckedChanged(object sender, EventArgs e)
+		{
+			DrawPreview(4);
+		}
 	}
 }

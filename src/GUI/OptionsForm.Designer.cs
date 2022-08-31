@@ -33,6 +33,7 @@ namespace Tetris
 		private System.Windows.Forms.RadioButton radioButton8;
 		private System.Windows.Forms.RadioButton radioButton7;
 		private System.Windows.Forms.RadioButton radioButton6;
+		private System.Windows.Forms.RadioButton radioButton9;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -74,6 +75,7 @@ namespace Tetris
 			this.label1 = new System.Windows.Forms.Label();
 			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this.radioButton9 = new System.Windows.Forms.RadioButton();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox4.SuspendLayout();
@@ -126,7 +128,7 @@ namespace Tetris
 			// button1
 			// 
 			this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.button1.Location = new System.Drawing.Point(189, 262);
+			this.button1.Location = new System.Drawing.Point(188, 270);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(75, 23);
 			this.button1.TabIndex = 1;
@@ -137,7 +139,7 @@ namespace Tetris
 			// button2
 			// 
 			this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.button2.Location = new System.Drawing.Point(270, 262);
+			this.button2.Location = new System.Drawing.Point(269, 270);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(75, 23);
 			this.button2.TabIndex = 2;
@@ -199,13 +201,14 @@ namespace Tetris
 			// 
 			// groupBox4
 			// 
+			this.groupBox4.Controls.Add(this.radioButton9);
 			this.groupBox4.Controls.Add(this.pictureBox1);
 			this.groupBox4.Controls.Add(this.radioButton8);
 			this.groupBox4.Controls.Add(this.radioButton7);
 			this.groupBox4.Controls.Add(this.radioButton6);
 			this.groupBox4.Location = new System.Drawing.Point(174, 103);
 			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(170, 137);
+			this.groupBox4.Size = new System.Drawing.Size(170, 152);
 			this.groupBox4.TabIndex = 5;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "Visual style";
@@ -278,15 +281,25 @@ namespace Tetris
 			this.groupBox3.Controls.Add(this.checkBox2);
 			this.groupBox3.Location = new System.Drawing.Point(12, 129);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(156, 111);
+			this.groupBox3.Size = new System.Drawing.Size(156, 126);
 			this.groupBox3.TabIndex = 6;
 			this.groupBox3.TabStop = false;
+			// 
+			// radioButton9
+			// 
+			this.radioButton9.Location = new System.Drawing.Point(6, 116);
+			this.radioButton9.Name = "radioButton9";
+			this.radioButton9.Size = new System.Drawing.Size(69, 24);
+			this.radioButton9.TabIndex = 4;
+			this.radioButton9.Text = "Style 4";
+			this.radioButton9.UseVisualStyleBackColor = true;
+			this.radioButton9.CheckedChanged += new System.EventHandler(this.RadioButton9CheckedChanged);
 			// 
 			// OptionsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(357, 297);
+			this.ClientSize = new System.Drawing.Size(357, 305);
 			this.Controls.Add(this.groupBox3);
 			this.Controls.Add(this.groupBox4);
 			this.Controls.Add(this.groupBox2);

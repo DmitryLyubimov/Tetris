@@ -55,6 +55,7 @@ namespace Tetris
 			if (radioButton6.Checked) CellVisualStyle = 1;
 			if (radioButton7.Checked) CellVisualStyle = 2;
 			if (radioButton8.Checked) CellVisualStyle = 3;
+			if (radioButton9.Checked) CellVisualStyle = 4;
 		}
 		
 		void DrawPreview(int style)
